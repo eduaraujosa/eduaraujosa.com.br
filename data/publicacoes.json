@@ -1,0 +1,63 @@
+[
+  {
+    "tipo": "Dissertação",
+    "ano": "2026",
+    "titulo": "Autorregulação da aprendizagem para o storytelling na prática docente",
+    "subtitulo": "Estratégias na elaboração de aulas de Ciências",
+    "veiculo": "Mestrado · PPGECM/UFPE",
+    "descricao": "Investiga as estratégias autorregulatórias de professores ao elaborar aulas de Ciências com storytelling.",
+    "rotuloLink": "Ler a dissertação",
+    "url": "https://lattes.cnpq.br/7759686437947941",
+    "pendente": "TODO: URL do repositório Attena/UFPE"
+  },
+  {
+    "tipo": "Artigo",
+    "ano": "2026",
+    "titulo": "A avaliação no ensino superior e a realidade emocional discente",
+    "subtitulo": "Contextos, demandas e cobranças",
+    "veiculo": "Cadernos Cajuína · com Álvaro Lima de Almeida Nunes",
+    "descricao": "Discute como a avaliação no ensino superior se relaciona com a realidade emocional dos estudantes.",
+    "rotuloLink": "Ler o artigo",
+    "url": "https://doi.org/10.52641/cadcajv11i1.1855"
+  },
+  {
+    "tipo": "Capítulo de livro",
+    "ano": "2026",
+    "titulo": "Entre delegar e decidir",
+    "subtitulo": "Autorregulação e autonomia docente no planejamento de aulas de Ciências com inteligência artificial generativa",
+    "veiculo": "Ensinar, Aprender e Transformar: Percursos da Educação",
+    "descricao": "Discute a autonomia docente quando professores planejam aulas de Ciências com apoio de IA generativa.",
+    "rotuloLink": "Ler o capítulo",
+    "url": "https://doi.org/10.63330/aurumpub.067-112"
+  },
+  {
+    "tipo": "Capítulo de livro",
+    "ano": "2026",
+    "titulo": "Escutar a sala de aula de Ciências",
+    "subtitulo": "Analítica docente mediada por inteligência artificial, dialogicidade e autorregulação na realidade brasileira",
+    "veiculo": "Além dos limites: educação e pesquisas contemporâneas, v. 10",
+    "descricao": "Reflete sobre o uso de IA para analisar a sala de aula, em diálogo com a dialogicidade e a autorregulação.",
+    "rotuloLink": "Ler o capítulo",
+    "url": "https://doi.org/10.48209/978-65-5417-798-5"
+  },
+  {
+    "tipo": "Trabalho em evento",
+    "ano": "2026",
+    "titulo": "Paulo Freire e a inteligência artificial",
+    "subtitulo": "Os desafios pedagógicos na educação contemporânea",
+    "veiculo": "IV Pré-Colóquio Internacional Paulo Freire, Recife",
+    "descricao": "Aproxima o pensamento de Paulo Freire dos desafios pedagógicos trazidos pela inteligência artificial.",
+    "rotuloLink": "Ler o trabalho",
+    "url": "https://doi.org/10.5281/zenodo.23501496"
+  },
+  {
+    "tipo": "Trabalho em evento",
+    "ano": "2025",
+    "titulo": "Storytelling como abordagem pedagógica no ensino de Ciências",
+    "subtitulo": "Um panorama das pesquisas brasileiras",
+    "veiculo": "III Congresso Brasileiro de Pesquisa e Inovação em Educação",
+    "descricao": "Reúne pesquisas brasileiras que tratam o storytelling como abordagem pedagógica no ensino de Ciências.",
+    "rotuloLink": "Ler o trabalho",
+    "url": "https://doi.org/10.51189/iii-cinped/55168"
+  }
+]
