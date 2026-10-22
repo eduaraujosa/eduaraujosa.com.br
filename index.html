@@ -1,635 +1,539 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Eduardo Araújo · Ensino de Ciências e pesquisa em educação</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Professor e pesquisador em Recife. Ensino de Ciências, autorregulação da aprendizagem, storytelling e design de experiências de aprendizagem.">
-<meta name="author" content="Eduardo Vinícius Araújo de Albuquerque Sá">
-<link rel="canonical" href="https://eduaraujosa.com.br/">
-<meta name="theme-color" content="#F4F4F8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#121218" media="(prefers-color-scheme: dark)">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Eduardo Araújo · Ensino de Ciências e pesquisa em educação</title>
+  <meta name="description" content="Professor de Biologia, mestre em Educação em Ciências e Matemática pela UFPE, pesquisador e desenvolvedor de soluções tecnológicas em educação.">
+  <!-- PRÉVIA: remover a linha abaixo ao publicar na raiz -->
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://eduaraujosa.com.br/">
+  <meta name="theme-color" content="#FFFFFF">
 
-<meta property="og:type" content="profile">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="Eduardo Araújo">
-<meta property="og:url" content="https://eduaraujosa.com.br/">
-<meta property="og:title" content="Eduardo Araújo · Ensino de Ciências e pesquisa em educação">
-<meta property="og:description" content="Uma trajetória que conecta sala de aula, pesquisa e criação de experiências de aprendizagem.">
-<meta property="og:image" content="https://eduaraujosa.com.br/img/eduardo-retrato.jpg">
-<meta property="og:image:alt" content="Eduardo Araújo falando diante de um quadro branco.">
-<meta property="profile:first_name" content="Eduardo">
-<meta property="profile:last_name" content="Araújo">
-<meta property="profile:username" content="eduaraujosa">
-<meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Eduardo Araújo">
+  <meta property="og:url" content="https://eduaraujosa.com.br/">
+  <meta property="og:title" content="Eduardo Araújo · Ensino de Ciências e pesquisa em educação">
+  <meta property="og:description" content="Professor de Biologia, mestre em Educação em Ciências e Matemática pela UFPE, pesquisador e desenvolvedor de soluções tecnológicas em educação.">
+  <meta property="og:image" content="https://eduaraujosa.com.br/img/eduardo-retrato.jpg">
+  <meta property="og:image:width" content="900">
+  <meta property="og:image:height" content="998">
+  <meta property="og:image:alt" content="Eduardo Araújo falando diante de um quadro branco, em uma formação.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eduardo Araújo · Ensino de Ciências e pesquisa em educação">
+  <meta name="twitter:description" content="Professor de Biologia, mestre em Educação em Ciências e Matemática pela UFPE, pesquisador e desenvolvedor de soluções tecnológicas em educação.">
+  <meta name="twitter:image" content="https://eduaraujosa.com.br/img/eduardo-retrato.jpg">
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230D0D0F%22%2F%3E%3Csvg%20x%3D%224%22%20y%3D%2214%22%20width%3D%2256%22%20height%3D%2236%22%20viewBox%3D%220%200%201550%20477%22%3E%3Cpath%20fill%3D%22%234D6BFF%22%20fill-rule%3D%22evenodd%22%20d%3D%22M7.2%20471.8C4.7%20470.6%203.5%20467.2%204.4%20464.2C5.1%20462.0%2014.3%20453.1%2038.5%20430.9C103.6%20371.4%20117.8%20358.2%20138.3%20338.6C149.2%20328.2%20157.9%20319.6%20157.7%20319.4C157.4%20319.1%20151.0%20321.4%20124.9%20331.5C114.2%20335.7%20110.7%20335.7%20108.8%20331.5C106.6%20326.7%20109.4%20324.7%20135.8%20311.7C149.4%20304.9%20166.2%20297.0%20173.3%20294.0L186.0%20288.5L210.3%20262.6C223.6%20248.4%20238.6%20232.4%20243.5%20227.0C248.4%20221.6%20268.2%20200.3%20287.3%20179.6C321.7%20142.6%20326.7%20137.0%20325.6%20137.0C325.0%20137.0%20306.6%20144.6%20268.0%20160.8C237.7%20173.5%20217.8%20182.2%20185.9%20196.8C160.7%20208.3%20159.6%20208.6%20156.5%20206.6C154.0%20205.0%20153.3%20201.7%20154.8%20199.2C156.7%20196.4%20214.1%20167.1%20252.0%20149.8C281.2%20136.4%20310.5%20124.2%20344.2%20111.3C351.9%20108.4%20351.9%20108.4%20370.1%2088.9C405.1%2051.6%20451.1%207.4%20457.6%205.0C466.1%201.7%20471.4%2010.0%20465.7%2017.7C464.5%2019.4%20448.6%2036.0%20430.4%2054.6C393.7%2092.2%20386.8%2099.6%20389.0%2098.8C391.2%2098.0%20424.4%2087.7%20446.9%2080.9C513.2%2060.7%20632.8%2032.2%20662.9%2029.4C669.6%2028.8%20673.4%2030.4%20673.8%2034.1C674.3%2038.6%20671.5%2039.6%20636.0%2048.5C617.0%2053.2%20596.5%2058.4%20590.5%2060.0C584.5%2061.6%20572.3%2064.7%20563.5%2067.0C525.4%2076.8%20471.5%2092.3%20406.5%20112.0C357.8%20126.8%20364.2%20124.0%20354.7%20134.4C346.5%20143.4%20300.6%20192.9%20277.5%20217.5C248.6%20248.4%20225.0%20274.3%20225.3%20274.7C225.6%20274.9%20232.2%20272.6%20240.1%20269.4C293.9%20248.3%20354.6%20227.4%20399.5%20214.6C421.1%20208.4%20426.3%20208.6%20426.2%20215.6C426.2%20220.0%20423.1%20221.8%20401.0%20229.6C389.2%20233.7%20371.4%20240.0%20361.5%20243.5C326.9%20255.7%20296.1%20267.0%20247.0%20285.4L197.5%20304.1L173.0%20328.3C129.8%20371.0%2094.1%20404.8%2071.3%20424.6C65.7%20429.5%2061.3%20433.6%2061.5%20433.8C61.6%20434.0%2064.6%20432.8%2068.1%20431.2C71.6%20429.6%2081.0%20425.2%2089.0%20421.5C165.5%20386.2%20253.8%20354.2%20351.5%20326.5C407.8%20310.6%20431.7%20304.2%20477.8%20292.6L522.3%20281.4L531.0%20254.5C539.7%20227.3%20552.2%20191.7%20554.6%20186.9C558.3%20179.6%20572.0%20181.2%20572.0%20189.0C572.0%20192.4%20566.8%20210.2%20560.1%20230.0C525.4%20332.0%20504.5%20396.1%20505.9%20395.9C506.2%20395.9%20513.1%20386.9%20521.3%20376.0C600.7%20269.1%20746.0%20105.4%20826.0%2032.6C852.7%208.3%20855.5%206.5%20859.9%2010.9C864.8%2015.8%20867.6%2012.3%20813.0%2068.5C770.3%20112.5%20731.1%20155.3%20682.6%20210.9C676.1%20218.4%20663.7%20232.6%20655.1%20242.5C641.0%20258.7%20616.4%20287.9%20574.0%20339.0C558.0%20358.2%20541.6%20378.7%20521.0%20405.1C495.5%20437.8%20491.9%20442.1%20489.5%20443.0C486.2%20444.2%20482.6%20442.8%20480.4%20439.5C478.7%20436.9%20478.9%20436.1%20485.5%20410.7C489.2%20396.3%20497.0%20368.1%20502.7%20348.0C516.8%20299.1%20516.5%20300.1%20515.9%20299.6C515.0%20298.7%20444.1%20317.8%20397.0%20331.7C383.0%20335.8%20367.7%20340.3%20363.0%20341.7C304.6%20358.6%20225.2%20384.9%20182.5%20401.5C175.9%20404.0%20167.1%20407.4%20163.0%20408.9C138.2%20418.3%20100.9%20434.0%2052.7%20455.4C9.7%20474.5%2011.5%20473.8%207.2%20471.8ZM862.6%20469.8C860.7%20467.2%20860.6%20463.7%20862.1%20460.8C862.8%20459.5%20875.0%20453.0%20895.3%20443.0C952.6%20414.9%20975.5%20404.9%201082.9%20361.9C1114.5%20349.2%201144.5%20337.1%201149.4%20335.0C1154.4%20332.9%201165.2%20328.4%201173.5%20325.0C1197.0%20315.1%201215.5%20307.3%201228.0%20301.7C1234.3%20299.0%201252.1%20291.1%201267.5%20284.3C1282.9%20277.5%201301.9%20269.2%201309.7%20265.7C1317.5%20262.3%201324.0%20259.2%201324.0%20258.9C1324.0%20258.6%201299.8%20258.0%201270.2%20257.7C1122.1%20256.1%201078.7%20244.7%201103.1%20213.8L1106.3%20209.9L1102.9%20210.4C1101.0%20210.7%201096.4%20211.5%201092.5%20212.1C1044.3%20219.3%20954.6%20243.5%20858.2%20275.2L829.8%20284.5L825.4%20295.5C810.4%20332.4%20797.6%20369.9%20787.0%20408.0C780.2%20432.2%20778.8%20435.0%20773.0%20435.0C767.7%20435.0%20766.6%20432.7%20767.4%20423.0C769.1%20399.7%20780.2%20358.1%20795.5%20317.3C800.2%20305.0%20804.0%20294.5%20804.0%20294.0C804.0%20293.0%20795.7%20295.8%20770.0%20305.3C737.5%20317.3%20714.3%20327.1%20683.5%20341.8C646.9%20359.3%20649.2%20357.7%20621.8%20384.7C571.4%20434.3%20534.7%20468.8%20531.3%20469.6C527.5%20470.6%20525.5%20469.6%20525.2%20466.8C524.7%20462.8%20543.6%20441.3%20594.1%20388.4C619.8%20361.5%20622.7%20358.0%20622.3%20355.6C621.6%20352.0%20624.2%20349.3%20629.3%20348.5C633.1%20347.8%20637.4%20343.8%20681.9%20300.1C785.6%20198.3%20823.6%20160.2%20888.8%2092.7C899.4%2081.8%20901.3%2080.7%20906.5%2082.6C909.1%2083.6%20911.2%2088.8%20910.4%2092.2C909.4%2097.0%20895.6%20130.4%20886.0%20151.5C884.2%20155.3%20880.8%20163.2%20878.3%20169.0C875.8%20174.8%20871.9%20183.8%20869.5%20189.0C858.0%20214.4%20838.6%20261.0%20839.3%20261.6C839.5%20261.8%20844.3%20260.4%20850.1%20258.4C934.5%20229.8%201046.3%20201.9%201117.0%20192.0C1132.0%20189.8%201132.8%20189.6%201140.0%20185.2C1150.1%20179.1%201185.0%20158.7%201204.0%20147.8C1263.3%20113.8%201309.7%2088.8%201353.5%2067.4C1394.2%2047.5%201431.9%2031.2%201441.4%2029.5C1448.1%2028.2%201453.0%2031.7%201453.0%2037.6C1453.0%2044.6%201441.3%2051.5%201378.0%2081.8C1296.1%20121.0%201253.5%20143.1%201199.0%20174.3C1158.1%20197.7%201130.9%20214.8%201122.8%20221.9L1118.5%20225.8L1125.5%20227.9C1149.5%20234.9%201203.0%20238.8%201308.1%20241.0C1362.4%20242.1%201364.0%20242.4%201364.0%20251.9C1364.0%20258.0%201360.7%20260.2%201322.6%20279.0C1249.8%20314.9%201169.2%20349.1%201077.0%20383.4C1052.0%20392.6%20988.1%20417.7%20971.0%20425.0C963.0%20428.3%20953.7%20432.3%20950.3%20433.7C946.8%20435.2%20944.2%20436.5%20944.4%20436.7C944.6%20436.9%20964.5%20431.9%20988.6%20425.5C1060.0%20406.7%201141.5%20386.5%201186.5%20376.4C1238.6%20364.7%201262.7%20359.4%201296.5%20352.4C1373.8%20336.4%201526.1%20313.1%201538.5%20315.4C1543.6%20316.4%201546.2%20319.3%201545.8%20323.7C1545.3%20330.2%201543.9%20330.6%201509.5%20335.0C1421.9%20346.2%201313.2%20367.0%201185.5%20397.0C1176.2%20399.2%201139.0%20407.9%201103.0%20416.4C1067.0%20424.9%201028.5%20434.0%201017.5%20436.6C1006.5%20439.1%20969.6%20448.2%20935.5%20456.6C870.7%20472.7%20865.3%20473.6%20862.6%20469.8ZM724.9%20305.3C744.0%20296.7%20765.8%20288.0%20792.2%20278.4L813.9%20270.5L815.6%20266.0C822.3%20248.3%20859.3%20167.4%20874.9%20136.1C878.3%20129.5%20880.7%20124.0%20880.3%20124.1C879.8%20124.1%20875.9%20128.2%20871.5%20133.3C831.9%20178.3%20772.3%20239.7%20720.0%20289.3C704.3%20304.1%20689.5%20318.3%20687.0%20320.7L682.5%20325.1L696.5%20318.4C704.2%20314.8%20717.0%20308.9%20724.9%20305.3Z%22%2F%3E%3C%2Fsvg%3E%3C%2Fsvg%3E">
-<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="icon" href="img/logo-cubo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon-v3.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;0,800;1,700&amp;display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "url": "https://eduaraujosa.com.br/",
-  "inLanguage": "pt-BR",
-  "dateModified": "2026-10-20",
-  "mainEntity": {
-    "@type": "Person",
-    "@id": "https://eduaraujosa.com.br/#eduardo",
-    "name": "Eduardo Araújo",
-    "alternateName": ["Eduardo Vinícius Araújo de Albuquerque Sá", "eduaraujosa"],
-    "image": "https://eduaraujosa.com.br/img/eduardo-retrato.jpg",
-    "jobTitle": "Professor e pesquisador",
-    "description": "Mestre em Educação em Ciências e Matemática pela UFPE, licenciado em Ciências Biológicas e especialista em Gestão Educacional.",
-    "homeLocation": { "@type": "Place", "name": "Recife, Pernambuco, Brasil" },
-    "alumniOf": [
-      { "@type": "CollegeOrUniversity", "name": "Universidade Federal de Pernambuco" },
-      { "@type": "CollegeOrUniversity", "name": "Faculdade Focus" }
-    ],
-    "memberOf": { "@type": "Organization", "name": "Grupo de Pesquisa em Educação, História e Cultura Científica (GPEHCC/CNPq)" },
-    "knowsAbout": ["Ensino de Ciências", "Formação de professores", "Autorregulação da aprendizagem", "Storytelling no ensino de Ciências", "Metodologias ativas", "Design de experiências de aprendizagem", "Inteligência artificial na educação"],
-    "identifier": { "@type": "PropertyValue", "propertyID": "ORCID", "value": "0000-0002-3794-1926" },
-    "sameAs": [
-      "https://orcid.org/0000-0002-3794-1926",
-      "https://lattes.cnpq.br/7759686437947941",
-      "https://scholar.google.com/citations?user=Gs2jzSQAAAAJ",
-      "https://www.linkedin.com/in/eduaraujosa",
-      "https://www.instagram.com/eduaraujosa",
-      "https://eduaraujosa.medium.com/"
-    ]
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/site.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://eduaraujosa.com.br/",
+    "inLanguage": "pt-BR",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Eduardo Araújo",
+      "alternateName": ["Eduardo Vinícius Araújo de Albuquerque Sá", "eduaraujosa"],
+      "url": "https://eduaraujosa.com.br/",
+      "image": "https://eduaraujosa.com.br/img/eduardo-retrato.jpg",
+      "jobTitle": "Professor de Biologia e pesquisador em Educação em Ciências",
+      "description": "Professor de Biologia, mestre em Educação em Ciências e Matemática pela UFPE, pesquisador e desenvolvedor de soluções tecnológicas em educação.",
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Universidade Federal de Pernambuco", "alternateName": "UFPE" },
+        { "@type": "CollegeOrUniversity", "name": "Faculdade Focus" }
+      ],
+      "memberOf": { "@type": "Organization", "name": "GPEHCC/CNPq" },
+      "knowsAbout": [
+        "Ensino de Ciências",
+        "Biologia",
+        "Formação de professores",
+        "Autorregulação da aprendizagem",
+        "Metacognição",
+        "Storytelling na educação",
+        "Tecnologia educacional",
+        "Inteligência artificial na educação"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/eduaraujosa/",
+        "https://www.instagram.com/eduaraujosa",
+        "https://eduaraujosa.medium.com/",
+        "https://lattes.cnpq.br/7759686437947941",
+        "https://orcid.org/0000-0002-3794-1926",
+        "https://scholar.google.com/citations?user=Gs2jzSQAAAAJ&hl=pt-BR"
+      ]
+    }
   }
-}
-</script>
-
-<style>
-/* Layout: uma coluna de leitura (~40rem) sobre trilhos verticais finos; índice e contato flutuam nas margens em telas largas. */
-:root {
-  --bg: #F4F4F8;          /* papel levemente lilás */
-  --surface: #FFFFFF;
-  --ink: #1B1A22;
-  --muted: #5A566A;
-  --rail: #E3E1EC;        /* trilhos e divisórias */
-  --accent: #4B3BC4;      /* roxo da identidade, para links e ações */
-  --accent-ink: #FFFFFF;
-  --rubrica: #4D6BFF;     /* azul da rubrica EVAS */
-  --tint: #ECEAF8;
-
-  --f-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --f-text: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --f-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --f-marca: "Anton", Impact, "Arial Narrow", sans-serif;
-
-  --col: 40rem;
-  --s-1: .8125rem;  /* 13px: metadados, como na referência */
-  --s0: .9375rem;   /* 15px: corpo */
-  --s1: 1.1875rem;  /* 19px: parágrafo de abertura */
-  --s2: 1.5rem;
-  --s3: 2.25rem;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #121218; --surface: #1A1A22; --ink: #ECEBF3; --muted: #A6A2B8; --rail: #26252F;
-    --accent: #A99BFF; --accent-ink: #121218; --rubrica: #7088FF; --tint: #201E2E; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #121218; --surface: #1A1A22; --ink: #ECEBF3; --muted: #A6A2B8; --rail: #26252F;
-  --accent: #A99BFF; --accent-ink: #121218; --rubrica: #7088FF; --tint: #201E2E; color-scheme: dark;
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body {
-  margin: 0; background: var(--bg); color: var(--ink);
-  font-family: var(--f-text); font-size: var(--s0); line-height: 1.6;
-  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-}
-img { display: block; max-width: 100%; height: auto; }
-p { margin: 0; }
-h1, h2, h3, h4 { margin: 0; font-weight: 500; text-wrap: balance; }
-a { color: var(--accent); text-underline-offset: .22em; text-decoration-thickness: 1px; }
-a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.pular { position: absolute; left: 1rem; top: -4rem; z-index: 20; background: var(--ink); color: var(--bg); padding: .6rem 1rem; font-weight: 600; text-decoration: none; }
-.pular:focus { top: 1rem; }
-
-/* Trilhos fixos: o "papel quadriculado" discreto da referência, reduzido a quatro linhas verticais */
-.trilhos { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
-.trilhos::before, .trilhos::after {
-  content: ""; position: absolute; top: 0; bottom: 0; width: calc(var(--col) + 2px);
-  left: 50%; transform: translateX(-50%);
-  border-left: 1px solid var(--rail); border-right: 1px solid var(--rail);
-}
-.trilhos::after { width: min(64rem, 100%); }
-
-.pagina {
-  position: relative; z-index: 1;
-  max-width: calc(var(--col) + 4rem); margin-inline: auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px), 2rem);
-  padding-right: max(16px, env(safe-area-inset-right, 0px), 2rem);
-}
-@media (max-width: 640px) { .pagina { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); } }
-
-/* Cabeçalho */
-.topo { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .5rem 1.5rem; padding-block: 1.25rem; }
-.marca { font-family: var(--f-marca); font-size: 1.35rem; line-height: 1; color: var(--ink); text-decoration: none; letter-spacing: .01em; }
-.marca span { color: var(--rubrica); }
-.menu ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1.1rem; }
-.menu a, .indice a { font-family: var(--f-mono); font-size: var(--s-1); color: var(--muted); text-decoration: none; }
-.menu a:hover, .indice a:hover { color: var(--ink); }
-@media (max-width: 520px) {
-  .menu { width: 100%; overflow-x: auto; scrollbar-width: none; }
-  .menu::-webkit-scrollbar { display: none; }
-  .menu ul { flex-wrap: nowrap; }
-  .menu li { flex: none; padding-block: .3rem; }
-}
-
-/* Margens flutuantes em telas largas */
-.indice, .lateral { display: none; }
-@media (min-width: 1180px) {
-  .menu { display: none; }
-  .indice { display: block; position: fixed; top: 30%; left: calc(50% + var(--col) / 2 + 3rem); z-index: 2; }
-  .indice ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
-  .indice a { display: inline-flex; gap: .6rem; }
-  .indice a span { opacity: .55; }
-  .indice a[aria-current="true"] { color: var(--ink); }
-  .indice a[aria-current="true"] span { color: var(--rubrica); opacity: 1; }
-  .lateral { display: block; position: fixed; bottom: 2rem; right: calc(50% + var(--col) / 2 + 3rem); z-index: 2; font-size: var(--s-1); color: var(--muted); text-align: right; line-height: 1.5; }
-  .lateral a { color: var(--ink); }
-}
-
-/* Abertura */
-.abertura { padding-block: 2.5rem 0; display: grid; gap: 1.75rem; }
-.identidade { display: flex; align-items: flex-end; gap: 1.1rem; }
-.leque { position: relative; width: 6.75rem; height: 4.6rem; flex: none; }
-.leque img {
-  position: absolute; top: .4rem; width: 3.6rem; height: 3.6rem; object-fit: cover;
-  border: 2px solid var(--surface); border-radius: 4px; background: var(--tint);
-}
-.leque img:nth-child(1) { left: 0; transform: rotate(-11deg); }
-.leque img:nth-child(2) { left: 1.55rem; top: 0; z-index: 1; }
-.leque img:nth-child(3) { left: 3.1rem; transform: rotate(11deg); }
-@media (prefers-reduced-motion: no-preference) {
-  .leque img { transition: transform .35s cubic-bezier(.3,.7,.3,1); }
-  .identidade:hover .leque img:nth-child(1) { transform: rotate(-16deg) translateX(-.35rem); }
-  .identidade:hover .leque img:nth-child(3) { transform: rotate(16deg) translateX(.35rem); }
-}
-.abertura h1 { font-family: var(--f-display); font-size: var(--s3); line-height: 1.02; letter-spacing: -.02em; }
-.abertura h1 small { display: block; margin-top: .4rem; font-family: var(--f-mono); font-size: var(--s-1); letter-spacing: .02em; color: var(--muted); font-weight: 400; }
-.lead { font-size: var(--s1); line-height: 1.45; letter-spacing: -.01em; max-width: 34rem; }
-.nota { color: var(--muted); max-width: 34rem; }
-.acoes { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; }
-.botao {
-  display: inline-flex; align-items: center; gap: .45rem; min-height: 2.75rem;
-  padding: .65rem 1.15rem; border-radius: 999px; border: 1.5px solid var(--accent);
-  background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none; line-height: 1.2;
-}
-.botao:hover { background: transparent; color: var(--accent); }
-.seta { display: inline-flex; align-items: center; gap: .35rem; min-height: 2.75rem; font-weight: 600; }
-.seta::after { content: "↗"; font-size: .9em; }
-.seta--baixo::after { content: "↓"; }
-.botao--baixo::after { content: "↓"; }
-
-/* Rubrica como divisória: o gesto da assinatura EVAS conduz de uma seção à outra */
-.rubrica { margin: 3.5rem 0 0; color: var(--rubrica); }
-.rubrica svg { width: 100%; height: auto; display: block; fill: currentColor; }
-.rubrica--curta { width: 46%; margin-inline: auto 0; }
-.rubrica--abre { width: 82%; margin-top: 2.5rem; }
-@media (prefers-reduced-motion: no-preference) {
-  .rubrica--abre svg { animation: assinar 1.6s cubic-bezier(.6,.05,.3,1) .3s both; }
-  @keyframes assinar { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
-}
-
-/* Seções */
-.secao { padding-block: 3.5rem 0; display: grid; gap: 1.25rem; }
-.rotulo { font-family: var(--f-mono); font-size: var(--s-1); color: var(--muted); display: flex; gap: .7rem; align-items: baseline; }
-.rotulo b { font-weight: 500; color: var(--rubrica); }
-.secao h2 { font-family: var(--f-display); font-size: var(--s2); line-height: 1.2; letter-spacing: -.01em; max-width: 28ch; }
-.intro { color: var(--muted); max-width: 36rem; }
-
-/* Entradas no formato da referência: nome à esquerda, período à direita, texto abaixo */
-.lista { list-style: none; margin: .75rem 0 0; padding: 0; display: grid; gap: 2rem; }
-.entrada { display: grid; gap: .3rem; }
-.entrada-topo { display: flex; justify-content: space-between; align-items: baseline; gap: .25rem 1rem; flex-wrap: wrap; }
-.entrada h3, .entrada h4 { font-size: var(--s0); font-weight: 600; line-height: 1.4; min-width: 0; }
-.periodo { font-family: var(--f-mono); font-size: var(--s-1); color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.onde { font-size: var(--s-1); color: var(--muted); }
-.entrada > p:not(.onde) { color: var(--muted); max-width: 36rem; }
-.vivo::before { content: ""; display: inline-block; width: .45rem; height: .45rem; border-radius: 50%; background: var(--rubrica); margin-right: .45rem; vertical-align: .1em; }
-
-details.mais { border-top: 1px solid var(--rail); border-bottom: 1px solid var(--rail); }
-details.mais > summary { cursor: pointer; list-style: none; padding: .9rem 0; min-height: 2.75rem; font-family: var(--f-mono); font-size: var(--s-1); color: var(--muted); display: flex; gap: .6rem; align-items: center; }
-details.mais > summary::-webkit-details-marker { display: none; }
-details.mais > summary::before { content: "+"; width: 1.25rem; text-align: center; color: var(--rubrica); }
-details.mais[open] > summary::before { content: "−"; }
-details.mais > summary:hover { color: var(--ink); }
-details.mais .lista { margin: 0 0 1.5rem; gap: 1.5rem; }
-
-/* Perguntas */
-.eixos { list-style: none; margin: .5rem 0 0; padding: 0; counter-reset: eixo; display: grid; gap: 2.25rem; }
-.eixo { counter-increment: eixo; display: grid; gap: .5rem; padding-left: 2.25rem; position: relative; }
-.eixo::before { content: counter(eixo, lower-alpha) "."; position: absolute; left: 0; top: .1rem; font-family: var(--f-mono); font-size: var(--s-1); color: var(--rubrica); }
-.eixo h3 { font-size: var(--s-1); font-family: var(--f-mono); font-weight: 400; color: var(--muted); letter-spacing: .02em; }
-.pergunta { font-family: var(--f-display); font-size: 1.35rem; line-height: 1.3; font-style: italic; }
-.eixo p:not(.pergunta) { color: var(--muted); max-width: 36rem; }
-.eixo .ligacao { font-size: var(--s-1); }
-
-/* Prática */
-.foto { margin: .5rem 0 0; }
-.foto img { width: 100%; border-radius: 3px; }
-.casos { display: grid; gap: 2.25rem; margin-top: .5rem; }
-.caso { display: grid; gap: .6rem; }
-.caso h3 { font-size: var(--s0); font-weight: 600; }
-.caso dl { margin: 0; display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: .35rem 1rem; }
-.caso dt { font-family: var(--f-mono); font-size: var(--s-1); color: var(--muted); padding-top: .1rem; }
-.caso dd { margin: 0; color: var(--muted); min-width: 0; }
-@media (max-width: 480px) { .caso dl { grid-template-columns: 1fr; gap: .1rem; } .caso dd { margin-bottom: .45rem; } }
-.caso-com-foto { display: grid; gap: 1.25rem; }
-@media (min-width: 700px) { .caso-com-foto { grid-template-columns: minmax(0, 1fr) 11rem; align-items: start; } }
-.caso-com-foto img { border-radius: 3px; width: 100%; max-width: 14rem; }
-
-/* Publicações */
-.grupo { display: grid; gap: 1rem; margin-top: 1.25rem; }
-.grupo > h3 { font-family: var(--f-mono); font-size: var(--s-1); font-weight: 400; color: var(--muted); padding-bottom: .5rem; border-bottom: 1px solid var(--rail); }
-.grupo .lista { margin: 0; gap: 1.5rem; }
-.pub h4 { font-family: var(--f-display); font-size: 1.15rem; font-weight: 500; line-height: 1.3; }
-.pub .doi { font-family: var(--f-mono); font-size: var(--s-1); word-break: break-all; }
-.perfis-academicos { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; margin-top: .5rem; }
-
-/* Textos */
-.ensaio { display: grid; gap: .75rem; padding: 1.5rem 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rail); margin-top: .5rem; }
-.ensaio .meta { font-family: var(--f-mono); font-size: var(--s-1); color: var(--muted); }
-.ensaio h3 { font-family: var(--f-display); font-size: 1.75rem; line-height: 1.12; letter-spacing: -.01em; }
-.ensaio h3 a { color: var(--ink); text-decoration: none; }
-.ensaio h3 a:hover { text-decoration: underline; text-decoration-color: var(--rubrica); }
-.ensaio p:not(.meta) { max-width: 36rem; }
-
-/* Contato */
-.perfis { list-style: none; margin: .75rem 0 0; padding: 0; border-top: 1px solid var(--rail); }
-.perfis a { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr) auto; gap: .2rem 1rem; align-items: baseline; padding: .85rem .25rem; min-height: 2.75rem; border-bottom: 1px solid var(--rail); color: var(--ink); text-decoration: none; }
-.perfis a:hover { background: var(--tint); }
-.perfis .nome { font-weight: 600; }
-.perfis .nome::after { content: " ↗"; color: var(--rubrica); font-weight: 400; }
-.perfis .desc { color: var(--muted); font-size: var(--s-1); }
-.perfis .id { font-family: var(--f-mono); font-size: var(--s-1); color: var(--muted); }
-@media (max-width: 560px) { .perfis a { grid-template-columns: 1fr; } .perfis .id { display: none; } }
-
-/* Rodapé */
-.rodape { margin-top: 4rem; padding-block: 2.5rem 3rem; border-top: 1px solid var(--rail); display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
-.rodape img { width: 5.5rem; height: auto; }
-.rodape p { font-size: var(--s-1); color: var(--muted); max-width: 26rem; }
-</style>
+  </script>
 </head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-<body id="topo">
-<a class="pular" href="#conteudo">Pular para o conteúdo</a>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="rubrica-evas" viewBox="0 0 1550 477"><path fill-rule="evenodd" d="M7.2 471.8C4.7 470.6 3.5 467.2 4.4 464.2C5.1 462.0 14.3 453.1 38.5 430.9C103.6 371.4 117.8 358.2 138.3 338.6C149.2 328.2 157.9 319.6 157.7 319.4C157.4 319.1 151.0 321.4 124.9 331.5C114.2 335.7 110.7 335.7 108.8 331.5C106.6 326.7 109.4 324.7 135.8 311.7C149.4 304.9 166.2 297.0 173.3 294.0L186.0 288.5L210.3 262.6C223.6 248.4 238.6 232.4 243.5 227.0C248.4 221.6 268.2 200.3 287.3 179.6C321.7 142.6 326.7 137.0 325.6 137.0C325.0 137.0 306.6 144.6 268.0 160.8C237.7 173.5 217.8 182.2 185.9 196.8C160.7 208.3 159.6 208.6 156.5 206.6C154.0 205.0 153.3 201.7 154.8 199.2C156.7 196.4 214.1 167.1 252.0 149.8C281.2 136.4 310.5 124.2 344.2 111.3C351.9 108.4 351.9 108.4 370.1 88.9C405.1 51.6 451.1 7.4 457.6 5.0C466.1 1.7 471.4 10.0 465.7 17.7C464.5 19.4 448.6 36.0 430.4 54.6C393.7 92.2 386.8 99.6 389.0 98.8C391.2 98.0 424.4 87.7 446.9 80.9C513.2 60.7 632.8 32.2 662.9 29.4C669.6 28.8 673.4 30.4 673.8 34.1C674.3 38.6 671.5 39.6 636.0 48.5C617.0 53.2 596.5 58.4 590.5 60.0C584.5 61.6 572.3 64.7 563.5 67.0C525.4 76.8 471.5 92.3 406.5 112.0C357.8 126.8 364.2 124.0 354.7 134.4C346.5 143.4 300.6 192.9 277.5 217.5C248.6 248.4 225.0 274.3 225.3 274.7C225.6 274.9 232.2 272.6 240.1 269.4C293.9 248.3 354.6 227.4 399.5 214.6C421.1 208.4 426.3 208.6 426.2 215.6C426.2 220.0 423.1 221.8 401.0 229.6C389.2 233.7 371.4 240.0 361.5 243.5C326.9 255.7 296.1 267.0 247.0 285.4L197.5 304.1L173.0 328.3C129.8 371.0 94.1 404.8 71.3 424.6C65.7 429.5 61.3 433.6 61.5 433.8C61.6 434.0 64.6 432.8 68.1 431.2C71.6 429.6 81.0 425.2 89.0 421.5C165.5 386.2 253.8 354.2 351.5 326.5C407.8 310.6 431.7 304.2 477.8 292.6L522.3 281.4L531.0 254.5C539.7 227.3 552.2 191.7 554.6 186.9C558.3 179.6 572.0 181.2 572.0 189.0C572.0 192.4 566.8 210.2 560.1 230.0C525.4 332.0 504.5 396.1 505.9 395.9C506.2 395.9 513.1 386.9 521.3 376.0C600.7 269.1 746.0 105.4 826.0 32.6C852.7 8.3 855.5 6.5 859.9 10.9C864.8 15.8 867.6 12.3 813.0 68.5C770.3 112.5 731.1 155.3 682.6 210.9C676.1 218.4 663.7 232.6 655.1 242.5C641.0 258.7 616.4 287.9 574.0 339.0C558.0 358.2 541.6 378.7 521.0 405.1C495.5 437.8 491.9 442.1 489.5 443.0C486.2 444.2 482.6 442.8 480.4 439.5C478.7 436.9 478.9 436.1 485.5 410.7C489.2 396.3 497.0 368.1 502.7 348.0C516.8 299.1 516.5 300.1 515.9 299.6C515.0 298.7 444.1 317.8 397.0 331.7C383.0 335.8 367.7 340.3 363.0 341.7C304.6 358.6 225.2 384.9 182.5 401.5C175.9 404.0 167.1 407.4 163.0 408.9C138.2 418.3 100.9 434.0 52.7 455.4C9.7 474.5 11.5 473.8 7.2 471.8ZM862.6 469.8C860.7 467.2 860.6 463.7 862.1 460.8C862.8 459.5 875.0 453.0 895.3 443.0C952.6 414.9 975.5 404.9 1082.9 361.9C1114.5 349.2 1144.5 337.1 1149.4 335.0C1154.4 332.9 1165.2 328.4 1173.5 325.0C1197.0 315.1 1215.5 307.3 1228.0 301.7C1234.3 299.0 1252.1 291.1 1267.5 284.3C1282.9 277.5 1301.9 269.2 1309.7 265.7C1317.5 262.3 1324.0 259.2 1324.0 258.9C1324.0 258.6 1299.8 258.0 1270.2 257.7C1122.1 256.1 1078.7 244.7 1103.1 213.8L1106.3 209.9L1102.9 210.4C1101.0 210.7 1096.4 211.5 1092.5 212.1C1044.3 219.3 954.6 243.5 858.2 275.2L829.8 284.5L825.4 295.5C810.4 332.4 797.6 369.9 787.0 408.0C780.2 432.2 778.8 435.0 773.0 435.0C767.7 435.0 766.6 432.7 767.4 423.0C769.1 399.7 780.2 358.1 795.5 317.3C800.2 305.0 804.0 294.5 804.0 294.0C804.0 293.0 795.7 295.8 770.0 305.3C737.5 317.3 714.3 327.1 683.5 341.8C646.9 359.3 649.2 357.7 621.8 384.7C571.4 434.3 534.7 468.8 531.3 469.6C527.5 470.6 525.5 469.6 525.2 466.8C524.7 462.8 543.6 441.3 594.1 388.4C619.8 361.5 622.7 358.0 622.3 355.6C621.6 352.0 624.2 349.3 629.3 348.5C633.1 347.8 637.4 343.8 681.9 300.1C785.6 198.3 823.6 160.2 888.8 92.7C899.4 81.8 901.3 80.7 906.5 82.6C909.1 83.6 911.2 88.8 910.4 92.2C909.4 97.0 895.6 130.4 886.0 151.5C884.2 155.3 880.8 163.2 878.3 169.0C875.8 174.8 871.9 183.8 869.5 189.0C858.0 214.4 838.6 261.0 839.3 261.6C839.5 261.8 844.3 260.4 850.1 258.4C934.5 229.8 1046.3 201.9 1117.0 192.0C1132.0 189.8 1132.8 189.6 1140.0 185.2C1150.1 179.1 1185.0 158.7 1204.0 147.8C1263.3 113.8 1309.7 88.8 1353.5 67.4C1394.2 47.5 1431.9 31.2 1441.4 29.5C1448.1 28.2 1453.0 31.7 1453.0 37.6C1453.0 44.6 1441.3 51.5 1378.0 81.8C1296.1 121.0 1253.5 143.1 1199.0 174.3C1158.1 197.7 1130.9 214.8 1122.8 221.9L1118.5 225.8L1125.5 227.9C1149.5 234.9 1203.0 238.8 1308.1 241.0C1362.4 242.1 1364.0 242.4 1364.0 251.9C1364.0 258.0 1360.7 260.2 1322.6 279.0C1249.8 314.9 1169.2 349.1 1077.0 383.4C1052.0 392.6 988.1 417.7 971.0 425.0C963.0 428.3 953.7 432.3 950.3 433.7C946.8 435.2 944.2 436.5 944.4 436.7C944.6 436.9 964.5 431.9 988.6 425.5C1060.0 406.7 1141.5 386.5 1186.5 376.4C1238.6 364.7 1262.7 359.4 1296.5 352.4C1373.8 336.4 1526.1 313.1 1538.5 315.4C1543.6 316.4 1546.2 319.3 1545.8 323.7C1545.3 330.2 1543.9 330.6 1509.5 335.0C1421.9 346.2 1313.2 367.0 1185.5 397.0C1176.2 399.2 1139.0 407.9 1103.0 416.4C1067.0 424.9 1028.5 434.0 1017.5 436.6C1006.5 439.1 969.6 448.2 935.5 456.6C870.7 472.7 865.3 473.6 862.6 469.8ZM724.9 305.3C744.0 296.7 765.8 288.0 792.2 278.4L813.9 270.5L815.6 266.0C822.3 248.3 859.3 167.4 874.9 136.1C878.3 129.5 880.7 124.0 880.3 124.1C879.8 124.1 875.9 128.2 871.5 133.3C831.9 178.3 772.3 239.7 720.0 289.3C704.3 304.1 689.5 318.3 687.0 320.7L682.5 325.1L696.5 318.4C704.2 314.8 717.0 308.9 724.9 305.3Z"/></symbol></svg>
-<div class="trilhos" aria-hidden="true"></div>
+  <!-- Ícones e logo: definidos uma única vez e reutilizados com <use>.
+       Para trocar o logo, substitua o conteúdo de #logo-cubo (e o arquivo img/logo-cubo.svg, usado como favicon). -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="logo-cubo" viewBox="0 0 48 53">
+      <path d="M24 1.60608L45.6 13.25L24 24.894L2.4 13.25L24 1.60608Z" fill="#B9A2FB"/>
+      <path d="M2.4 13.25L24 24.8939V51.3939L2.4 39.75V13.25Z" fill="#7C3AED"/>
+      <path d="M24 24.8939L45.6 13.25V39.75L24 51.3939V24.8939Z" fill="#2E1065"/>
+      <path d="M30.48 10.2226L33.4475 11.8223L36.415 10.2226L33.4475 8.62289L30.48 10.2226ZM38.1327 12.5514C38.1327 11.3019 36.2537 10.2891 33.936 10.2891C31.6183 10.2891 29.7393 11.3019 29.7393 12.5514H33.936H38.1327ZM18.384 16.7432L21.3515 18.3429L33.4475 11.8223L30.48 10.2226L27.5125 8.62289L15.4165 15.1435L18.384 16.7432ZM30.48 10.2226L33.4475 8.62289C30.8324 7.2132 27.5697 6.40479 24.1563 6.35991C20.7334 6.31491 17.4807 7.04442 14.9845 8.39001L17.952 9.9897L20.9195 11.5894C21.8793 11.0719 22.9466 10.8699 23.9517 10.8832C24.9663 10.8965 26.2396 11.136 27.5125 11.8223L30.48 10.2226ZM17.952 9.9897L14.9845 8.39001C12.3452 9.81279 11.0543 11.6202 11.2223 13.4767C11.3877 15.3046 12.9457 17.0109 15.4165 18.3429L18.384 16.7432L21.3515 15.1435C20.1503 14.496 19.6563 13.8153 19.6057 13.2562C19.5577 12.7257 19.8868 12.1461 20.9195 11.5894L17.952 9.9897ZM18.384 16.7432L15.4165 18.3429C17.9835 19.7267 21.2425 20.4852 24.7223 20.4158C28.1596 20.3471 31.3341 19.4821 33.8795 18.11L30.912 16.5103L27.9445 14.9106C26.6019 15.6344 25.3484 15.8756 24.4117 15.8943C23.5175 15.9121 22.4565 15.7392 21.3515 15.1435L18.384 16.7432ZM30.912 16.5103L33.8795 18.11C36.9089 16.4769 38.1327 14.4828 38.1327 12.5514H33.936H29.7393C29.7393 13.4145 29.2351 14.2149 27.9445 14.9106L30.912 16.5103Z" fill="#fff"/>
+      <path d="M11.5204 43.599C11.5204 44.6528 12.2724 45.9134 13.2 46.4146C14.1276 46.9159 14.8796 46.4679 14.8796 45.4141L13.2 44.5065L11.5204 43.599ZM14.8796 25.8156C14.8796 24.7618 14.1276 23.5011 13.2 22.9999C12.2724 22.4987 11.5204 22.9466 11.5204 24.0005L13.2 24.908L14.8796 25.8156ZM12.0882 35.272C12.7836 36.3452 13.845 36.8439 14.459 36.3857C15.073 35.9276 15.0071 34.6861 14.3118 33.6129L13.2 34.4424L12.0882 35.272ZM9.55977 26.278C8.86444 25.2047 7.80302 24.7061 7.18901 25.1642C6.575 25.6224 6.64091 26.8638 7.33623 27.9371L8.448 27.1075L9.55977 26.278ZM12.1023 29.2269C11.4002 29.5363 11.3225 30.6992 11.9287 31.8244C12.5349 32.9496 13.5956 33.611 14.2977 33.3017L13.2 31.2643L12.1023 29.2269ZM18.6177 31.3984C19.3198 31.0891 19.3975 29.9261 18.7913 28.8009C18.1851 27.6757 17.1244 27.0143 16.4223 27.3237L17.52 29.361L18.6177 31.3984ZM12.1875 36.6104C11.4474 36.8457 11.3007 37.9631 11.8599 39.106C12.419 40.249 13.4723 40.9848 14.2125 40.7495L13.2 38.6799L12.1875 36.6104ZM18.5325 39.3759C19.2726 39.1406 19.4193 38.0232 18.8601 36.8803C18.301 35.7373 17.2476 35.0015 16.5075 35.2368L17.52 37.3064L18.5325 39.3759ZM13.2 44.5065L14.8796 45.4141V25.8156L13.2 24.908L11.5204 24.0005V43.599L13.2 44.5065ZM13.2 34.4424L14.3118 33.6129L9.55977 26.278L8.448 27.1075L7.33623 27.9371L12.0882 35.272L13.2 34.4424ZM13.2 31.2643L14.2977 33.3017L18.6177 31.3984L17.52 29.361L16.4223 27.3237L12.1023 29.2269L13.2 31.2643ZM13.2 38.6799L14.2125 40.7495L18.5325 39.3759L17.52 37.3064L16.5075 35.2368L12.1875 36.6104L13.2 38.6799Z" fill="#fff"/>
+      <path d="M32.208 28.4267L30.8151 29.0235C30.8106 29.0777 30.8083 29.1308 30.8083 29.1828L32.208 28.4267ZM30.48 31.4782V29.8881C30.4268 29.9169 30.3736 29.949 30.3208 29.9845L30.48 31.4782ZM37.392 25.6265L38.7917 24.8704C38.7917 24.8184 38.7894 24.7677 38.785 24.7184L37.392 25.6265ZM39.12 26.8112L39.2792 25.1454C39.2264 25.1671 39.1732 25.1923 39.12 25.2211V26.8112ZM32.208 39.0172L30.8083 39.7733C30.8083 39.8253 30.8106 39.876 30.8151 39.9253L32.208 39.0172ZM30.48 37.8325L30.3208 39.4983C30.3736 39.4766 30.4268 39.4514 30.48 39.4226V37.8325ZM37.392 36.217L38.785 35.6202C38.7894 35.5661 38.7917 35.5129 38.7917 35.4609L37.392 36.217ZM39.12 33.1655V34.7556C39.1732 34.7268 39.2264 34.6947 39.2792 34.6592L39.12 33.1655ZM32.208 30.5448V32.1349L37.392 29.3347V27.7446V26.1545L32.208 28.9547V30.5448ZM37.392 27.7446L35.9923 28.5006V34.855L37.392 34.0989L38.7917 33.3428V26.9885L37.392 27.7446ZM37.392 34.0989V32.5088L32.208 35.309V36.8991V38.4892L37.392 35.689V34.0989ZM32.208 36.8991L33.6077 36.1431V29.7888L32.208 30.5448L30.8083 31.3009V37.6552L32.208 36.8991ZM32.208 30.5448L33.6077 29.7888V27.6707L32.208 28.4267L30.8083 29.1828V31.3009L32.208 30.5448ZM32.208 28.4267L33.601 27.8299C33.6694 27.0023 33.5373 26.2708 33.2145 25.7373L31.9717 27.1402L30.7289 28.543C30.7984 28.6578 30.8314 28.8253 30.8151 29.0235L32.208 28.4267ZM31.9717 27.1402L33.2145 25.7373C32.8912 25.2032 32.3865 24.8856 31.7538 24.8569L31.1127 26.6167L30.4715 28.3765C30.5643 28.3807 30.6599 28.4289 30.7289 28.543L31.9717 27.1402ZM31.1127 26.6167L31.7538 24.8569C31.1191 24.8282 30.3968 25.0932 29.6913 25.6226L29.9461 27.0485L30.2009 28.4744C30.2879 28.4091 30.3807 28.3724 30.4715 28.3765L31.1127 26.6167ZM29.9461 27.0485L29.6913 25.6226C28.9871 26.1512 28.3545 26.9017 27.8737 27.7507L28.9002 28.2771L29.9268 28.8034C30.0145 28.6485 30.1128 28.5406 30.2009 28.4744L29.9461 27.0485ZM28.9002 28.2771L27.8737 27.7507C27.3941 28.5976 27.0864 29.5041 26.9765 30.3485L28.3589 29.8515L29.7412 29.3545C29.7672 29.1542 29.8378 28.9605 29.9268 28.8034L28.9002 28.2771ZM28.3589 29.8515L26.9765 30.3485C26.8667 31.1926 26.957 31.9539 27.2408 32.529L28.5207 31.194L29.8005 29.859C29.7378 29.7319 29.715 29.5552 29.7412 29.3545L28.3589 29.8515ZM28.5207 31.194L27.2408 32.529C27.5249 33.1046 27.9949 33.4756 28.6033 33.5639L29.3263 31.8118L30.0492 30.0597C29.9558 30.0462 29.8629 29.9855 29.8005 29.859L28.5207 31.194ZM29.3263 31.8118L28.6033 33.5639C29.2137 33.6524 29.9262 33.4499 30.6392 32.972L30.48 31.4782L30.3208 29.9845C30.2343 30.0425 30.1406 30.073 30.0492 30.0597L29.3263 31.8118ZM30.48 31.4782V33.0683L32.208 32.1349V30.5448V28.9547L30.48 29.8881V31.4782ZM37.392 27.7446L38.7917 26.9885V24.8704L37.392 25.6265L35.9923 26.3825V28.5006L37.392 27.7446ZM37.392 25.6265L38.785 24.7184C38.7686 24.5379 38.8016 24.3348 38.8711 24.1448L37.6283 24.0846L36.3855 24.0244C36.0627 24.9066 35.9306 25.7809 35.9991 26.5346L37.392 25.6265ZM37.6283 24.0846L38.8711 24.1448C38.9401 23.9561 39.0357 23.8047 39.1285 23.7003L38.4874 22.6331L37.8462 21.566C37.2135 22.2782 36.7088 23.141 36.3855 24.0244L37.6283 24.0846ZM38.4874 22.6331L39.1285 23.7003C39.2193 23.598 39.3121 23.5345 39.3991 23.5058L39.6539 21.8047L39.9087 20.1035C39.2032 20.3362 38.4809 20.8516 37.8462 21.566L38.4874 22.6331ZM39.6539 21.8047L39.3991 23.5058C39.4873 23.4768 39.5855 23.4786 39.6732 23.5387L40.6998 21.9033L41.7263 20.2679C41.2455 19.9383 40.6129 19.8712 39.9087 20.1035L39.6539 21.8047ZM40.6998 21.9033L39.6732 23.5387C39.7622 23.5997 39.8328 23.7171 39.8588 23.8893L41.2412 22.8929L42.6235 21.8965C42.5136 21.1708 42.2059 20.5967 41.7263 20.2679L40.6998 21.9033ZM41.2412 22.8929L39.8588 23.8893C39.885 24.0617 39.8622 24.2631 39.7995 24.4579L41.0794 24.4102L42.3592 24.3624C42.643 23.4808 42.7333 22.6219 42.6235 21.8965L41.2412 22.8929ZM41.0794 24.4102L39.7995 24.4579C39.7371 24.6518 39.6442 24.8128 39.5508 24.9272L40.2738 25.8983L40.9967 26.8694C41.6051 26.1238 42.0751 25.245 42.3592 24.3624L41.0794 24.4102ZM40.2738 25.8983L39.5508 24.9272C39.4594 25.0392 39.3657 25.1099 39.2792 25.1454L39.12 26.8112L38.9608 28.4769C39.6738 28.1845 40.3863 27.6174 40.9967 26.8694L40.2738 25.8983ZM39.12 26.8112V25.2211L37.392 26.1545V27.7446V29.3347L39.12 28.4013V26.8112ZM32.208 36.8991L30.8083 37.6552V39.7733L32.208 39.0172L33.6077 38.2612V36.1431L32.208 36.8991ZM32.208 39.0172L30.8151 39.9253C30.8314 40.1058 30.7984 40.3089 30.7289 40.4989L31.9717 40.5591L33.2145 40.6193C33.5373 39.7371 33.6694 38.8629 33.601 38.1092L32.208 39.0172ZM31.9717 40.5591L30.7289 40.4989C30.6599 40.6876 30.5643 40.839 30.4715 40.9435L31.1127 42.0106L31.7538 43.0777C32.3865 42.3656 32.8912 41.5027 33.2145 40.6193L31.9717 40.5591ZM31.1127 42.0106L30.4715 40.9435C30.3807 41.0457 30.2879 41.1092 30.2009 41.1379L29.9461 42.839L29.6913 44.5402C30.3968 44.3075 31.1191 43.7921 31.7538 43.0777L31.1127 42.0106ZM29.9461 42.839L30.2009 41.1379C30.1128 41.167 30.0145 41.1651 29.9268 41.105L28.9002 42.7404L27.8737 44.3758C28.3545 44.7054 28.9871 44.7725 29.6913 44.5402L29.9461 42.839ZM28.9002 42.7404L29.9268 41.105C29.8378 41.044 29.7672 40.9266 29.7412 40.7544L28.3589 41.7508L26.9765 42.7472C27.0864 43.4729 27.3941 44.047 27.8737 44.3758L28.9002 42.7404ZM28.3589 41.7508L29.7412 40.7544C29.715 40.582 29.7378 40.3807 29.8005 40.1858L28.5207 40.2336L27.2408 40.2813C26.957 41.1629 26.8667 42.0218 26.9765 42.7472L28.3589 41.7508ZM28.5207 40.2336L29.8005 40.1858C29.8629 39.9919 29.9558 39.8309 30.0492 39.7165L29.3263 38.7454L28.6033 37.7743C27.9949 38.5199 27.5249 39.3987 27.2408 40.2813L28.5207 40.2336ZM29.3263 38.7454L30.0492 39.7165C30.1406 39.6045 30.2343 39.5338 30.3208 39.4983L30.48 37.8325L30.6392 36.1668C29.9262 36.4592 29.2137 37.0264 28.6033 37.7743L29.3263 38.7454ZM30.48 37.8325V39.4226L32.208 38.4892V36.8991V35.309L30.48 36.2425V37.8325ZM37.392 34.0989L35.9923 34.855V36.9731L37.392 36.217L38.7917 35.4609V33.3428L37.392 34.0989ZM37.392 36.217L35.9991 36.8138C35.9306 37.6414 36.0627 38.3729 36.3855 38.9064L37.6283 37.5036L38.8711 36.1007C38.8016 35.9859 38.7686 35.8184 38.785 35.6202L37.392 36.217ZM37.6283 37.5036L36.3855 38.9064C36.7088 39.4406 37.2135 39.7582 37.8462 39.7868L38.4874 38.027L39.1285 36.2672C39.0357 36.263 38.9401 36.2149 38.8711 36.1007L37.6283 37.5036ZM38.4874 38.027L37.8462 39.7868C38.4809 39.8155 39.2032 39.5505 39.9087 39.0211L39.6539 37.5952L39.3991 36.1693C39.3121 36.2346 39.2193 36.2713 39.1285 36.2672L38.4874 38.027ZM39.6539 37.5952L39.9087 39.0211C40.613 38.4925 41.2455 37.742 41.7263 36.893L40.6998 36.3666L39.6732 35.8403C39.5855 35.9952 39.4873 36.1031 39.3991 36.1693L39.6539 37.5952ZM40.6998 36.3666L41.7263 36.893C42.2059 36.0461 42.5136 35.1396 42.6235 34.2952L41.2412 34.7922L39.8588 35.2892C39.8328 35.4895 39.7622 35.6832 39.6732 35.8403L40.6998 36.3666ZM41.2412 34.7922L42.6235 34.2952C42.7333 33.4511 42.643 32.6898 42.3592 32.1148L41.0794 33.4497L39.7995 34.7847C39.8622 34.9118 39.885 35.0885 39.8588 35.2892L41.2412 34.7922ZM41.0794 33.4497L42.3592 32.1148C42.0751 31.5391 41.6051 31.1681 40.9967 31.0798L40.2738 32.8319L39.5508 34.584C39.6442 34.5975 39.7371 34.6582 39.7995 34.7847L41.0794 33.4497ZM40.2738 32.8319L40.9967 31.0798C40.3863 30.9913 39.6738 31.1938 38.9608 31.6717L39.12 33.1655L39.2792 34.6592C39.3657 34.6013 39.4594 34.5707 39.5508 34.584L40.2738 32.8319ZM39.12 33.1655V31.5754L37.392 32.5088V34.0989V35.689L39.12 34.7556V33.1655Z" fill="#fff"/>
+    </symbol>
+    <symbol id="i-seta" viewBox="0 0 20 20">
+      <path d="M3 10H16M11 15L16 10L11 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-abre" viewBox="0 0 20 20">
+      <path d="M5 15L15 5M15 13V5H7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
 
-<nav class="indice" aria-label="Índice da página">
-  <ol>
-    <li><a href="#trajetoria"><span>01</span>trajetória</a></li>
-    <li><a href="#perguntas"><span>02</span>perguntas</a></li>
-    <li><a href="#pratica"><span>03</span>prática</a></li>
-    <li><a href="#publicacoes"><span>04</span>publicações</a></li>
-    <li><a href="#textos"><span>05</span>textos</a></li>
-    <li><a href="#contato"><span>06</span>contato</a></li>
-  </ol>
-</nav>
-<aside class="lateral" aria-label="Contato rápido">
-  Para conversar sobre<br>pesquisa e educação:<br>
-  <a href="https://www.linkedin.com/in/eduaraujosa/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (abre em nova aba)</span></a>
-</aside>
-
-<div class="pagina">
-<header class="topo">
-  <a class="marca" href="#topo" aria-label="Eduardo Araújo, voltar ao início">EDU<span>.</span></a>
-  <nav class="menu" aria-label="Seções da página">
-    <ul>
-      <li><a href="#trajetoria">trajetória</a></li>
-      <li><a href="#perguntas">perguntas</a></li>
-      <li><a href="#pratica">prática</a></li>
-      <li><a href="#publicacoes">publicações</a></li>
-      <li><a href="#textos">textos</a></li>
-      <li><a href="#contato">contato</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main id="conteudo">
-
-  <!-- Apresentação -->
-  <section class="abertura" aria-labelledby="nome">
-    <div class="identidade">
-      <div class="leque" aria-hidden="true">
-        <img src="img/thumb-1.webp" alt="" width="240" height="240">
-        <img src="img/thumb-3.webp" alt="" width="240" height="240">
-        <img src="img/thumb-2.webp" alt="" width="240" height="240">
-      </div>
+  <header class="cabecalho">
+    <div class="cabecalho__barra contido">
+      <a class="marca" href="#inicio">
+        <svg class="marca__logo" width="48" height="53" aria-hidden="true" focusable="false"><use href="#logo-cubo"/></svg>
+        <span class="marca__texto">
+          <span class="marca__nome">Eduardo Araújo</span>
+          <span class="marca__usuario">@eduaraujosa</span>
+        </span>
+      </a>
+      <nav class="menu" aria-label="Seções do site">
+        <button class="menu__botao" type="button" aria-expanded="false" aria-controls="menu-lista">
+          <span class="menu__icone" aria-hidden="true"></span>Menu
+        </button>
+        <ul class="menu__lista" id="menu-lista">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#trajetoria">Trajetória</a></li>
+          <li><a href="#publicacoes">Publicações</a></li>
+          <li><a href="#lifestyle">Lifestyle</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
     </div>
-    <h1 id="nome">Eduardo Araújo
-      <small>Ensino de Ciências · pesquisa em educação · design de experiências de aprendizagem</small>
-    </h1>
-    <p class="lead">Sou professor de Ciências e Biologia e pesquisador em educação, em Recife. Meu trabalho conecta a sala de aula, a pesquisa sobre como professores planejam e aprendem e a criação de experiências de aprendizagem.</p>
-    <p class="nota">Sou mestre em Educação em Ciências e Matemática pela UFPE, licenciado em Ciências Biológicas e especialista em Gestão Educacional. Hoje leciono na rede estadual de Pernambuco e atuo como mediador pedagógico no IFPE.</p>
-    <div class="acoes">
-      <a class="botao botao--baixo" href="#trajetoria">Conheça minha trajetória</a>
-      <a class="seta seta--baixo" href="#textos">Leia meus textos</a>
-    </div>
-    <div class="rubrica rubrica--abre" aria-hidden="true"><svg viewBox="0 0 1550 477" focusable="false"><use href="#rubrica-evas"/></svg></div>
-  </section>
+  </header>
 
-  <!-- Trajetória -->
-  <section class="secao" id="trajetoria" aria-labelledby="trajetoria-titulo">
-    <p class="rotulo"><b>01</b> Trajetória</p>
-    <h2 id="trajetoria-titulo">Como essa trajetória se construiu</h2>
-    <p class="intro">Formação, sala de aula e tecnologia educacional não vieram uma depois da outra: por vários anos, andaram juntas. Os marcos estão em ordem cronológica, e alguns períodos se sobrepõem.</p>
+  <main id="conteudo" tabindex="-1">
 
-    <ol class="lista">
-      <li class="entrada">
-        <div class="entrada-topo"><h3>Licenciatura em Ciências Biológicas</h3><span class="periodo">2018–2022</span></div>
-        <p class="onde">Universidade Federal de Pernambuco</p>
-        <p>A formação que sustenta meu trabalho no ensino de Ciências. Na graduação, vivi a escola pública pelo PIBID e estagiei em desenvolvimento de software na universidade.</p>
-      </li>
-      <li class="entrada">
-        <div class="entrada-topo"><h3>Professor de Ciências da Natureza</h3><span class="periodo">2019–2023</span></div>
-        <p class="onde">Colégio Incentivo</p>
-        <p>Ensinei Ciências no Ensino Fundamental II e no Ensino Médio, trabalhando com metodologias ativas e propostas de investigação em sala de aula.</p>
-      </li>
-      <li class="entrada">
-        <div class="entrada-topo"><h3>Tecnologia educacional</h3><span class="periodo">2020–2022</span></div>
-        <p class="onde">Educandus</p>
-        <p>No estágio em consultoria pedagógica, desenvolvi e avaliei conteúdos didáticos, colaborei na criação de jogos educacionais e participei de ações de formação docente.</p>
-      </li>
-      <li class="entrada">
-        <div class="entrada-topo"><h3>Consultoria educacional</h3><span class="periodo">2022–2023</span></div>
-        <p class="onde">Poliedro Educação</p>
-        <p>Participei da formação de professores e do apoio a escolas, com foco em planejamento docente e na adoção de metodologias ativas.</p>
-      </li>
-      <li class="entrada">
-        <div class="entrada-topo"><h3>Mestrado e pesquisa em grupo</h3><span class="periodo">2023–2026</span></div>
-        <p class="onde">PPGECM/UFPE · GPEHCC/CNPq</p>
-        <p>No mestrado em Educação em Ciências e Matemática, estudei autorregulação da aprendizagem e storytelling na elaboração de aulas de Ciências. No mesmo período, concluí a especialização em Gestão Educacional pela Faculdade Focus.</p>
-      </li>
-      <li class="entrada">
-        <div class="entrada-topo"><h3>Rede pública e ensino superior</h3><span class="periodo"><span class="vivo"></span>2024–atual</span></div>
-        <p class="onde">Secretaria de Educação e Esportes de Pernambuco · UNINASSAU (2024–2025)</p>
-        <p>Sou professor efetivo de Ciências da Natureza e Biologia na rede estadual. Entre 2024 e 2025, também lecionei para turmas de Pedagogia e de cursos de Tecnologia.</p>
-      </li>
-      <li class="entrada">
-        <div class="entrada-topo"><h3>Mediação pedagógica</h3><span class="periodo"><span class="vivo"></span>2025–atual</span></div>
-        <p class="onde">Instituto Federal de Pernambuco</p>
-        <p>Acompanhei professores na especialização em Ensino de Ciências (2025–2026) e hoje acompanho estudantes do curso a distância de Tecnologia em Gestão Ambiental.</p>
-      </li>
-    </ol>
-
-    <details class="mais">
-      <summary>Outras experiências</summary>
-      <ul class="lista">
-        <li class="entrada">
-          <div class="entrada-topo"><h3>Coordenação de parcerias empresariais</h3><span class="periodo">2024</span></div>
-          <p>Pela Secretaria de Educação e Esportes de Pernambuco, na Escola Técnica Estadual Miguel Batista.</p>
-        </li>
-        <li class="entrada">
-          <div class="entrada-topo"><h3>Desenvolvimento de software na UFPE</h3><span class="periodo">2019–2021</span></div>
-          <p>Estágio na Superintendência de Tecnologia da Informação, como bolsista do Projeto MOVER.</p>
-        </li>
-        <li class="entrada">
-          <div class="entrada-topo"><h3>Iniciação à docência (PIBID)</h3><span class="periodo">2018–2020</span></div>
-          <p>Acompanhei o ensino de Biologia na Escola Estadual Professor Leal de Barros, em Recife.</p>
-        </li>
-      </ul>
-    </details>
-    <p><a class="seta" href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener">Ver o currículo completo no Lattes<span class="sr-only"> (abre em nova aba)</span></a></p>
-  </section>
-
-  <div class="rubrica rubrica--curta" aria-hidden="true"><svg viewBox="0 0 1550 477" focusable="false"><use href="#rubrica-evas"/></svg></div>
-
-  <!-- Perguntas -->
-  <section class="secao" id="perguntas" aria-labelledby="perguntas-titulo">
-    <p class="rotulo"><b>02</b> Pesquisa</p>
-    <h2 id="perguntas-titulo">As perguntas que movem meu trabalho</h2>
-    <p class="intro">Da sala de aula saem as perguntas que levo para a pesquisa. Hoje elas se organizam em três eixos.</p>
-
-    <ol class="eixos">
-      <li class="eixo">
-        <h3>Storytelling e autorregulação da aprendizagem</h3>
-        <p class="pergunta">O que muda quando o professor planeja uma aula como quem constrói uma história?</p>
-        <p>Autorregulação da aprendizagem é a capacidade de planejar, acompanhar e avaliar o próprio processo de aprender. Na dissertação, olhei para esse processo do lado de quem ensina: as estratégias autorregulatórias envolvidas na elaboração de aulas de Ciências organizadas em torno de uma narrativa.</p>
-        <p class="ligacao"><a href="#publicacoes">Ver a dissertação e o panorama sobre storytelling</a></p>
-      </li>
-      <li class="eixo">
-        <h3>Ensino de Ciências e formação de professores</h3>
-        <p class="pergunta">Como professores de Ciências aprendem a planejar aulas investigativas?</p>
-        <p>Metodologias ativas e ensino por investigação só chegam à escola quando fazem sentido para quem planeja. Por isso me interessa a formação de professores como um espaço de experimentar, discutir e revisar práticas, algo que acompanhei na consultoria educacional e na especialização do IFPE.</p>
-        <p class="ligacao"><a href="#pratica">Ver as experiências em formação docente</a></p>
-      </li>
-      <li class="eixo">
-        <h3>Tecnologias e design de experiências de aprendizagem</h3>
-        <p class="pergunta">Quando a inteligência artificial entra no planejamento, quem continua decidindo?</p>
-        <p>No Medium, me apresento como LX designer, ou designer de experiências de aprendizagem: alguém que pensa a sequência, os materiais e o ambiente em que se aprende. Agora investigo o que a inteligência artificial generativa muda nesse trabalho e como preservar a autonomia docente.</p>
-        <p class="ligacao"><a href="#publicacoes">Ver os capítulos sobre IA e planejamento docente</a></p>
-      </li>
-    </ol>
-  </section>
-
-  <!-- Prática -->
-  <section class="secao" id="pratica" aria-labelledby="pratica-titulo">
-    <p class="rotulo"><b>03</b> Prática</p>
-    <h2 id="pratica-titulo">Da reflexão à prática</h2>
-    <p class="intro">Quatro frentes em que as perguntas da pesquisa encontram o trabalho do dia a dia.</p>
-
-    <figure class="foto">
-      <img src="img/eduardo-mediacao.webp" width="1400" height="791" loading="lazy" decoding="async"
-           alt="Eduardo Araújo, sentado entre duas pessoas diante de notebooks, explica algo gesticulando com as mãos.">
-    </figure>
-
-    <div class="casos">
-      <article class="caso caso-com-foto">
-        <div class="caso">
-          <h3>Formação e acompanhamento de professores</h3>
-          <dl>
-            <dt>Contexto</dt><dd>Especialização em Ensino de Ciências nos anos finais do Ensino Fundamental, no IFPE.</dd>
-            <dt>O que fiz</dt><dd>Mediação pedagógica da turma C10 e participação em bancas de trabalhos de conclusão.</dd>
-            <dt>Com quem</dt><dd>Professores da educação básica em formação continuada.</dd>
-            <dt>Referência</dt><dd><a href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener">Currículo Lattes<span class="sr-only"> (abre em nova aba)</span></a></dd>
-          </dl>
+    <!-- 2. Abertura -->
+    <section class="abertura" id="inicio" aria-labelledby="inicio-titulo">
+      <div class="abertura__grade contido">
+        <div class="abertura__texto">
+          <p class="eyebrow">Educação, natureza e tecnologia</p>
+          <h1 class="abertura__nome" id="inicio-titulo">Eduardo Araújo</h1>
+          <p class="abertura__subtitulo">Prof. MSc em Educação em Ciências e Matemática e biólogo pela UFPE, desenvolvedor e pesquisador.</p>
+          <p class="abertura__paragrafo">Atualmente sou professor efetivo de Biologia na rede estadual de Pernambuco, com trabalho ativo nas pesquisas em metacognição para a aprendizagem pelo GPEHCC, na UFPE/CAA. Também atuo no curso superior de Gestão Ambiental do IFPE e cocrio soluções tecnológicas em educação.</p>
+          <div class="abertura__acoes">
+            <a class="botao" href="#trajetoria">Conheça minha trajetória</a>
+            <a class="link-seta" href="#publicacoes">Ver publicações<svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+          </div>
         </div>
-        <img src="img/eduardo-formacao.webp" width="900" height="1046" loading="lazy" decoding="async"
-             alt="Eduardo Araújo fala diante de um quadro branco, segurando um pincel vermelho.">
-      </article>
+        <div class="abertura__foto dobra-canto">
+          <picture>
+            <source type="image/webp" srcset="img/eduardo-retrato-480.webp 480w, img/eduardo-retrato.webp 900w" sizes="(min-width: 1280px) 400px, (min-width: 1024px) 31vw, (min-width: 768px) 480px, calc(100vw - 40px)">
+            <img src="img/eduardo-retrato.jpg" width="900" height="998" alt="Eduardo Araújo falando diante de um quadro branco, em uma formação." fetchpriority="high" decoding="async">
+          </picture>
+        </div>
+      </div>
+    </section>
 
-      <article class="caso">
-        <h3>Conteúdos e recursos educacionais</h3>
-        <dl>
-          <dt>Contexto</dt><dd>Produtos educacionais digitais da Educandus.</dd>
-          <dt>O que fiz</dt><dd>Desenvolvimento e avaliação de conteúdos de Ciências da Natureza, colaboração em jogos educacionais e formações sobre os materiais.</dd>
-          <dt>Com quem</dt><dd>Equipes pedagógicas e professores de redes municipais de ensino.</dd>
-          <dt>Referência</dt><dd><a href="https://www.linkedin.com/in/eduaraujosa/" target="_blank" rel="noopener">Perfil no LinkedIn<span class="sr-only"> (abre em nova aba)</span></a></dd>
-        </dl>
-      </article>
+    <!-- 3. Sobre e formação -->
+    <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="sobre__grade contido">
+        <div class="sobre__coluna sobre__coluna--sobre">
+          <p class="eyebrow">Quem é Eduardo Araújo?</p>
+          <h2 class="h2" id="sobre-titulo">Sobre</h2>
+          <p class="sobre__paragrafo">Nasci e cresci em Recife (PE), na antiga comunidade do Bongi. Filho de pais jovens, tive acesso à educação desde cedo pela Fundação Bradesco, onde descobri o interesse pelas ciências biológicas.</p>
+          <p class="sobre__paragrafo">Na Licenciatura em Ciências Biológicas, pude escolher entre a iniciação científica no Instituto Keizo Asami (LIKA/UFPE), com nematódeos como organismos-modelo em pesquisas, e a formação docente pelo PIBID. Optei pelo PIBID e, em paralelo, participei de competições de tecnologia, como o Projeto Mover, conquistando uma bolsa para atuar com análise de negócios, tecnologia governamental, design thinking e garantia da qualidade (QA).</p>
+        </div>
+        <div class="sobre__coluna sobre__coluna--formacao">
+          <p class="eyebrow">Percurso acadêmico</p>
+          <h2 class="h2" id="formacao-titulo">Formação</h2>
+          <ol class="formacao" aria-labelledby="formacao-titulo">
+            <li class="formacao__item">
+              <p class="formacao__periodo">2023–2026</p>
+              <h3 class="formacao__grau">Mestrado <em>stricto sensu</em></h3>
+              <p class="formacao__detalhe">Educação em Ciências e Matemática · PPGECM/UFPE. Pesquisa sobre autorregulação da aprendizagem na prática docente, no GPEHCC/CNPq.</p>
+            </li>
+            <li class="formacao__item">
+              <p class="formacao__periodo">2026</p>
+              <h3 class="formacao__grau">Especialização <em>lato sensu</em></h3>
+              <p class="formacao__detalhe">Engenharia de Software · Faculdade Focus</p>
+            </li>
+            <li class="formacao__item">
+              <p class="formacao__periodo">2023–2024</p>
+              <h3 class="formacao__grau">Especialização <em>lato sensu</em></h3>
+              <p class="formacao__detalhe">Gestão Educacional · Faculdade Focus</p>
+            </li>
+            <li class="formacao__item">
+              <p class="formacao__periodo">2018–2022</p>
+              <h3 class="formacao__grau">Licenciatura plena</h3>
+              <p class="formacao__detalhe">Ciências Biológicas · UFPE</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
-      <article class="caso">
-        <h3>Mediação em ambientes virtuais</h3>
-        <dl>
-          <dt>Contexto</dt><dd>Curso de Tecnologia em Gestão Ambiental, a distância, no IFPE.</dd>
-          <dt>O que faço</dt><dd>Acompanho estudantes ao longo das disciplinas e apoio seus processos de aprendizagem no ambiente virtual.</dd>
-          <dt>Com quem</dt><dd>Estudantes de graduação tecnológica.</dd>
-          <dt>Referência</dt><dd><a href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener">Currículo Lattes<span class="sr-only"> (abre em nova aba)</span></a></dd>
-        </dl>
-      </article>
-
-      <article class="caso">
-        <h3>Ensino de Ciências e Biologia</h3>
-        <dl>
-          <dt>Contexto</dt><dd>Rede estadual de Pernambuco e, antes, o Colégio Incentivo.</dd>
-          <dt>O que faço</dt><dd>Aulas de Ciências da Natureza e Biologia com metodologias ativas e propostas de investigação.</dd>
-          <dt>Com quem</dt><dd>Estudantes do Ensino Fundamental II e do Ensino Médio.</dd>
-          <dt>Referência</dt><dd><a href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener">Currículo Lattes<span class="sr-only"> (abre em nova aba)</span></a></dd>
-        </dl>
-      </article>
-    </div>
-  </section>
-
-  <div class="rubrica rubrica--curta" aria-hidden="true"><svg viewBox="0 0 1550 477" focusable="false"><use href="#rubrica-evas"/></svg></div>
-
-  <!-- Publicações -->
-  <section class="secao" id="publicacoes" aria-labelledby="publicacoes-titulo">
-    <p class="rotulo"><b>04</b> Publicações</p>
-    <h2 id="publicacoes-titulo">O que pesquiso e publico</h2>
-    <p class="intro">Uma seleção da produção recente, organizada pelo tipo de publicação.</p>
-
-    <div class="grupo">
-      <h3>Dissertação</h3>
-      <ul class="lista">
-        <li class="entrada pub">
-          <div class="entrada-topo"><h4>Autorregulação da aprendizagem para o storytelling na prática docente: estratégias na elaboração de aulas de Ciências</h4><span class="periodo">2026</span></div>
-          <p class="onde">Mestrado · Programa de Pós-Graduação em Educação em Ciências e Matemática, UFPE</p>
-          <p>Trata das estratégias de autorregulação da aprendizagem envolvidas quando professores elaboram aulas de Ciências com storytelling.</p>
+    <!-- 4. Trajetória
+         Os capítulos vêm de data/trajetoria.json. Depois de editar o JSON,
+         rode: node ferramentas/gerar-listas.mjs (ou edite o bloco abaixo à mão).
+         O campo "foto" vazio deixa a zona de foto vazia, de propósito. -->
+    <section class="trajetoria" id="trajetoria" aria-labelledby="trajetoria-titulo">
+      <div class="contido">
+        <div class="cabeca-secao">
+          <p class="eyebrow">De onde vem meu trabalho</p>
+          <h2 class="h2" id="trajetoria-titulo">Trajetória</h2>
+          <p class="introducao introducao--720">Uma história contada em capítulos: da primeira sala de aula às pesquisas e aos projetos de hoje.</p>
+        </div>
+        <ol class="linha-tempo">
+          <!-- trajetoria:inicio -->
+        <li class="capitulo capitulo--esquerda">
+          <article class="capitulo__card dobra dobra--30" aria-labelledby="cap-2018">
+            <p class="capitulo__ano">2018</p>
+            <h3 class="capitulo__titulo" id="cap-2018">Primeiro contato com a sala de aula</h3>
+            <p class="capitulo__lugar">PIBID · Escola Professor Leal de Barros</p>
+            <p class="capitulo__texto">Ainda no começo da licenciatura, entrei na escola pelo PIBID. Acompanhei turmas do Ensino Médio com projetos de educação socioambiental, socioemocional e preparação para o ENEM. Ali, ser professor deixou de ser plano e virou rotina.</p>
+          </article>
+          <span class="capitulo__marcador" aria-hidden="true"></span>
         </li>
-      </ul>
-    </div>
-
-    <div class="grupo">
-      <h3>Artigo em periódico</h3>
-      <ul class="lista">
-        <li class="entrada pub">
-          <div class="entrada-topo"><h4>A avaliação no ensino superior e a realidade emocional discente: contextos, demandas e cobranças</h4><span class="periodo">2026</span></div>
-          <p class="onde"><cite>Cadernos Cajuína</cite> · com Álvaro Lima de Almeida Nunes</p>
-          <p>Discute como a avaliação no ensino superior se relaciona com a realidade emocional dos estudantes.</p>
-          <p><a class="doi" href="https://doi.org/10.52641/cadcajv11i1.1855" target="_blank" rel="noopener">doi:10.52641/cadcajv11i1.1855<span class="sr-only"> (abre em nova aba)</span></a></p>
+        <li class="capitulo capitulo--direita">
+          <article class="capitulo__card dobra dobra--30" aria-labelledby="cap-2019">
+            <p class="capitulo__ano">2019</p>
+            <h3 class="capitulo__titulo" id="cap-2019">Um pé na tecnologia</h3>
+            <p class="capitulo__lugar">Projeto Mover · NTI/UFPE</p>
+            <p class="capitulo__texto">Pelo Projeto Mover, ganhei uma bolsa no Núcleo de Tecnologia da Informação da UFPE. Como analista de negócios, aprendi a transformar necessidades em software: documentei sistemas, escrevi testes e trabalhei com Scrum, Kanban e design thinking.</p>
+          </article>
+          <span class="capitulo__marcador" aria-hidden="true"></span>
         </li>
-      </ul>
-    </div>
-
-    <div class="grupo">
-      <h3>Capítulos de livro</h3>
-      <ul class="lista">
-        <li class="entrada pub">
-          <div class="entrada-topo"><h4>Entre delegar e decidir: autorregulação e autonomia docente no planejamento de aulas de Ciências com inteligência artificial generativa</h4><span class="periodo">2026</span></div>
-          <p class="onde"><cite>Ensinar, Aprender e Transformar: Percursos da Educação</cite></p>
-          <p>Discute autorregulação e autonomia docente quando professores planejam aulas de Ciências com apoio de IA generativa.</p>
-          <p><a class="doi" href="https://doi.org/10.63330/aurumpub.067-112" target="_blank" rel="noopener">doi:10.63330/aurumpub.067-112<span class="sr-only"> (abre em nova aba)</span></a></p>
+        <li class="capitulo capitulo--esquerda">
+          <article class="capitulo__card dobra dobra--30" aria-labelledby="cap-2020">
+            <p class="capitulo__ano">2020</p>
+            <h3 class="capitulo__titulo" id="cap-2020">Educação e tecnologia no mesmo lugar</h3>
+            <p class="capitulo__lugar">Educandus Tecnologia Educacional</p>
+            <p class="capitulo__texto">Na Educandus, juntei os dois mundos. Desenvolvi e revisei conteúdos didáticos, ajudei a criar jogos educacionais e participei da formação de professores da rede pública.</p>
+          </article>
+          <span class="capitulo__marcador" aria-hidden="true"></span>
         </li>
-        <li class="entrada pub">
-          <div class="entrada-topo"><h4>Escutar a sala de aula de Ciências: analítica docente mediada por inteligência artificial, dialogicidade e autorregulação na realidade brasileira</h4><span class="periodo">2026</span></div>
-          <p class="onde"><cite>Além dos limites: educação e pesquisas contemporâneas</cite>, v. 10</p>
-          <p>Reflete sobre o uso de inteligência artificial para analisar a sala de aula, em diálogo com a dialogicidade e a autorregulação.</p>
-          <p><a class="doi" href="https://doi.org/10.48209/978-65-5417-798-5" target="_blank" rel="noopener">doi:10.48209/978-65-5417-798-5<span class="sr-only"> (livro completo, abre em nova aba)</span></a></p>
+        <li class="capitulo capitulo--direita">
+          <article class="capitulo__card dobra dobra--30" aria-labelledby="cap-2021">
+            <p class="capitulo__ano">2021</p>
+            <h3 class="capitulo__titulo" id="cap-2021">Minha turma de Ciências</h3>
+            <p class="capitulo__lugar">Colégio Incentivo</p>
+            <p class="capitulo__texto">Assumi as aulas de Ciências do Ensino Fundamental II. Foi meu laboratório para testar aprendizagem baseada em problemas e gamificação com os estudantes.</p>
+          </article>
+          <span class="capitulo__marcador" aria-hidden="true"></span>
         </li>
-      </ul>
-    </div>
-
-    <div class="grupo">
-      <h3>Trabalhos em eventos</h3>
-      <ul class="lista">
-        <li class="entrada pub">
-          <div class="entrada-topo"><h4>Paulo Freire e a inteligência artificial: os desafios pedagógicos na educação contemporânea</h4><span class="periodo">2026</span></div>
-          <p class="onde">IV Pré-Colóquio Internacional Paulo Freire, Recife</p>
-          <p>Aproxima o pensamento de Paulo Freire dos desafios pedagógicos trazidos pela inteligência artificial.</p>
-          <p><a class="doi" href="https://doi.org/10.5281/zenodo.23501496" target="_blank" rel="noopener">doi:10.5281/zenodo.23501496<span class="sr-only"> (abre em nova aba)</span></a></p>
+        <li class="capitulo capitulo--esquerda">
+          <article class="capitulo__card dobra dobra--30" aria-labelledby="cap-2022">
+            <p class="capitulo__ano">2022</p>
+            <h3 class="capitulo__titulo" id="cap-2022">Empreender em educação</h3>
+            <p class="capitulo__lugar">Lumi Educação · Poliedro Educação</p>
+            <p class="capitulo__texto">Fundei a Lumi Educação e cuidei de tudo, da estratégia à comunicação, para levar soluções pedagógicas às escolas. No fim do ano, entrei no Poliedro como consultor, formando professores em metodologias ativas, BNCC e itinerários formativos.</p>
+          </article>
+          <span class="capitulo__marcador" aria-hidden="true"></span>
         </li>
-        <li class="entrada pub">
-          <div class="entrada-topo"><h4>Storytelling como abordagem pedagógica no ensino de Ciências: um panorama das pesquisas brasileiras</h4><span class="periodo">2025</span></div>
-          <p class="onde">III Congresso Brasileiro de Pesquisa e Inovação em Educação</p>
-          <p>Reúne pesquisas brasileiras que tratam o storytelling como abordagem pedagógica no ensino de Ciências.</p>
-          <p><a class="doi" href="https://doi.org/10.51189/iii-cinped/55168" target="_blank" rel="noopener">doi:10.51189/iii-cinped/55168<span class="sr-only"> (abre em nova aba)</span></a></p>
+        <li class="capitulo capitulo--direita">
+          <article class="capitulo__card dobra dobra--30" aria-labelledby="cap-2023">
+            <p class="capitulo__ano">2023</p>
+            <h3 class="capitulo__titulo" id="cap-2023">De volta à universidade</h3>
+            <p class="capitulo__lugar">PPGECM/UFPE · GPEHCC</p>
+            <p class="capitulo__texto">Comecei o mestrado em Educação em Ciências e Matemática e entrei no GPEHCC. A pergunta que me acompanhou: como o professor regula a própria aprendizagem quando planeja aulas com storytelling?</p>
+          </article>
+          <span class="capitulo__marcador" aria-hidden="true"></span>
         </li>
-      </ul>
+        <li class="capitulo capitulo--esquerda">
+          <article class="capitulo__card dobra dobra--30" aria-labelledby="cap-2024">
+            <p class="capitulo__ano">2024</p>
+            <h3 class="capitulo__titulo" id="cap-2024">Escola pública e ensino superior</h3>
+            <p class="capitulo__lugar">ETE Miguel Batista · UNINASSAU · SEE-PE</p>
+            <p class="capitulo__texto">Um ano intenso. Coordenei a integração entre empresas e a ETE Miguel Batista, comecei a lecionar na UNINASSAU para Pedagogia e cursos de tecnologia e, em outubro, me tornei professor efetivo de Biologia na rede estadual.</p>
+          </article>
+          <span class="capitulo__marcador" aria-hidden="true"></span>
+        </li>
+        <li class="capitulo capitulo--direita">
+          <article class="capitulo__card dobra dobra--30" aria-labelledby="cap-2025">
+            <p class="capitulo__ano">2025</p>
+            <h3 class="capitulo__titulo" id="cap-2025">Formando quem forma</h3>
+            <p class="capitulo__lugar">IFPE · Especialização C10!</p>
+            <p class="capitulo__texto">No IFPE, passei a acompanhar professores na especialização em Ensino de Ciências, nos polos de EaD do interior, em disciplinas sobre ensino por investigação e no TCC.</p>
+          </article>
+          <span class="capitulo__marcador" aria-hidden="true"></span>
+        </li>
+        <li class="capitulo capitulo--esquerda capitulo--atual">
+          <article class="capitulo__card dobra dobra--30" aria-labelledby="cap-2026">
+            <p class="capitulo__ano">2026</p>
+            <h3 class="capitulo__titulo" id="cap-2026">Mestre, e o próximo capítulo</h3>
+            <p class="capitulo__lugar">UFPE · Faculdade Focus · IFPE</p>
+            <p class="capitulo__texto">Concluí o mestrado e a especialização em Engenharia de Software, e comecei a mediar o curso superior de Gestão Ambiental do IFPE. A sala de aula, a pesquisa e a tecnologia seguem andando juntas.</p>
+          </article>
+          <span class="capitulo__marcador" aria-hidden="true"></span>
+        </li>
+          <!-- trajetoria:fim -->
+        </ol>
+        <p class="trajetoria__rodape">
+          <a class="link-seta" href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener noreferrer">Ver o currículo completo no Lattes <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- 5. Publicações
+         As publicações vêm de data/publicacoes.json. Depois de editar o JSON,
+         rode: node ferramentas/gerar-listas.mjs (ou edite o bloco abaixo à mão). -->
+    <section class="publicacoes fundo-lavanda" id="publicacoes" aria-labelledby="publicacoes-titulo">
+      <div class="contido">
+        <div class="cabeca-secao cabeca-secao--16">
+          <p class="eyebrow">Produção e conhecimento</p>
+          <div class="publicacoes__titulo">
+            <h2 class="h1" id="publicacoes-titulo">Publicações</h2>
+            <!-- Rótulo editável/removível (pendente de confirmação) -->
+            <p class="publicacoes__qualis">(Qualis A1 – B4)</p>
+          </div>
+          <p class="introducao introducao--760">Artigos, capítulos, trabalhos em eventos e a dissertação: tudo o que já publiquei sobre ensino de Ciências, autorregulação e tecnologia na educação.</p>
+        </div>
+        <ol class="publicacoes__lista">
+          <!-- publicacoes:inicio -->
+        <li>
+          <article class="pub dobra dobra--34" aria-labelledby="pub-1">
+            <div class="pub__id">
+              <p class="pub__tipo">Dissertação · 2026</p>
+              <p class="pub__veiculo">Mestrado · PPGECM/UFPE</p>
+            </div>
+            <div class="pub__conteudo">
+              <h3 class="pub__titulo" id="pub-1">Autorregulação da aprendizagem para o storytelling na prática docente</h3>
+              <p class="pub__subtitulo">Estratégias na elaboração de aulas de Ciências</p>
+              <p class="pub__descricao">Investiga as estratégias autorregulatórias de professores ao elaborar aulas de Ciências com storytelling.</p>
+            <!-- // TODO: URL do repositório Attena/UFPE -->
+              <a class="link-seta" href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener noreferrer">Ler a dissertação <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="pub dobra dobra--34" aria-labelledby="pub-2">
+            <div class="pub__id">
+              <p class="pub__tipo">Artigo · 2026</p>
+              <p class="pub__veiculo">Cadernos Cajuína · com Álvaro Lima de Almeida Nunes</p>
+            </div>
+            <div class="pub__conteudo">
+              <h3 class="pub__titulo" id="pub-2">A avaliação no ensino superior e a realidade emocional discente</h3>
+              <p class="pub__subtitulo">Contextos, demandas e cobranças</p>
+              <p class="pub__descricao">Discute como a avaliação no ensino superior se relaciona com a realidade emocional dos estudantes.</p>
+              <a class="link-seta" href="https://doi.org/10.52641/cadcajv11i1.1855" target="_blank" rel="noopener noreferrer">Ler o artigo <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="pub dobra dobra--34" aria-labelledby="pub-3">
+            <div class="pub__id">
+              <p class="pub__tipo">Capítulo de livro · 2026</p>
+              <p class="pub__veiculo">Ensinar, Aprender e Transformar: Percursos da Educação</p>
+            </div>
+            <div class="pub__conteudo">
+              <h3 class="pub__titulo" id="pub-3">Entre delegar e decidir</h3>
+              <p class="pub__subtitulo">Autorregulação e autonomia docente no planejamento de aulas de Ciências com inteligência artificial generativa</p>
+              <p class="pub__descricao">Discute a autonomia docente quando professores planejam aulas de Ciências com apoio de IA generativa.</p>
+              <a class="link-seta" href="https://doi.org/10.63330/aurumpub.067-112" target="_blank" rel="noopener noreferrer">Ler o capítulo <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="pub dobra dobra--34" aria-labelledby="pub-4">
+            <div class="pub__id">
+              <p class="pub__tipo">Capítulo de livro · 2026</p>
+              <p class="pub__veiculo">Além dos limites: educação e pesquisas contemporâneas, v. 10</p>
+            </div>
+            <div class="pub__conteudo">
+              <h3 class="pub__titulo" id="pub-4">Escutar a sala de aula de Ciências</h3>
+              <p class="pub__subtitulo">Analítica docente mediada por inteligência artificial, dialogicidade e autorregulação na realidade brasileira</p>
+              <p class="pub__descricao">Reflete sobre o uso de IA para analisar a sala de aula, em diálogo com a dialogicidade e a autorregulação.</p>
+              <a class="link-seta" href="https://doi.org/10.48209/978-65-5417-798-5" target="_blank" rel="noopener noreferrer">Ler o capítulo <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="pub dobra dobra--34" aria-labelledby="pub-5">
+            <div class="pub__id">
+              <p class="pub__tipo">Trabalho em evento · 2026</p>
+              <p class="pub__veiculo">IV Pré-Colóquio Internacional Paulo Freire, Recife</p>
+            </div>
+            <div class="pub__conteudo">
+              <h3 class="pub__titulo" id="pub-5">Paulo Freire e a inteligência artificial</h3>
+              <p class="pub__subtitulo">Os desafios pedagógicos na educação contemporânea</p>
+              <p class="pub__descricao">Aproxima o pensamento de Paulo Freire dos desafios pedagógicos trazidos pela inteligência artificial.</p>
+              <a class="link-seta" href="https://doi.org/10.5281/zenodo.23501496" target="_blank" rel="noopener noreferrer">Ler o trabalho <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="pub dobra dobra--34" aria-labelledby="pub-6">
+            <div class="pub__id">
+              <p class="pub__tipo">Trabalho em evento · 2025</p>
+              <p class="pub__veiculo">III Congresso Brasileiro de Pesquisa e Inovação em Educação</p>
+            </div>
+            <div class="pub__conteudo">
+              <h3 class="pub__titulo" id="pub-6">Storytelling como abordagem pedagógica no ensino de Ciências</h3>
+              <p class="pub__subtitulo">Um panorama das pesquisas brasileiras</p>
+              <p class="pub__descricao">Reúne pesquisas brasileiras que tratam o storytelling como abordagem pedagógica no ensino de Ciências.</p>
+              <a class="link-seta" href="https://doi.org/10.51189/iii-cinped/55168" target="_blank" rel="noopener noreferrer">Ler o trabalho <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+            </div>
+          </article>
+        </li>
+          <!-- publicacoes:fim -->
+        </ol>
+        <div class="publicacoes__perfis">
+          <p>Produção completa em</p>
+          <ul>
+            <li><a class="link-seta" href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener noreferrer">Lattes <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a></li>
+            <li><a class="link-seta" href="https://orcid.org/0000-0002-3794-1926" target="_blank" rel="noopener noreferrer">ORCID <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a></li>
+            <li><a class="link-seta" href="https://scholar.google.com/citations?user=Gs2jzSQAAAAJ&amp;hl=pt-BR" target="_blank" rel="noopener noreferrer">Google Acadêmico <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Lifestyle
+         URLs e IDs das integrações: objeto LIFESTYLE no topo de js/site.js. -->
+    <section class="lifestyle fundo-lavanda" id="lifestyle" aria-labelledby="lifestyle-titulo">
+      <div class="contido">
+        <div class="cabeca-secao">
+          <p class="eyebrow">Fora da sala de aula</p>
+          <h2 class="h2" id="lifestyle-titulo">Lifestyle</h2>
+          <p class="introducao introducao--760">Som, ideias e o dia a dia: três janelas para o que eu faço quando não estou planejando aula ou escrevendo artigo.</p>
+        </div>
+
+        <div class="janelas">
+          <!-- Janela 1 · Instagram -->
+          <article class="janela janela--instagram" aria-labelledby="ig-pergunta">
+            <div class="janela__barra">
+              <p class="janela__plataforma">Instagram</p>
+              <a class="janela__abrir" href="https://www.instagram.com/eduaraujosa" target="_blank" rel="noopener noreferrer" data-ig-perfil>abrir<span class="sr"> o Instagram (abre em nova aba)</span><svg class="ico ico-abre ico-abre--p" width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a>
+            </div>
+            <div class="janela__corpo">
+              <div class="janela__texto">
+                <h3 class="janela__pergunta" id="ig-pergunta">O que anda acontecendo por aqui?</h3>
+                <p class="janela__descricao">Um post escolhido do meu Instagram, para mostrar um pouco do dia a dia fora da escola e da pesquisa.</p>
+                <a class="link-seta" href="https://www.instagram.com/eduaraujosa" target="_blank" rel="noopener noreferrer" data-ig-perfil>Seguir @eduaraujosa <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+              </div>
+              <div class="moldura moldura--instagram" data-embed="instagram">
+                <!-- Sem JavaScript: link direto para o post. Com JS: fachada, carregamento, post ou erro. -->
+                <div class="estado">
+                  <a class="estado__link" href="https://www.instagram.com/p/DY7HMK6kbZx/" target="_blank" rel="noopener noreferrer">Ver o post no Instagram<span class="sr"> (abre em nova aba)</span><svg class="ico ico-abre" width="16" height="16" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Janela 2 · SoundCloud -->
+          <article class="janela janela--soundcloud" aria-labelledby="sc-pergunta">
+            <div class="janela__barra">
+              <p class="janela__plataforma">SoundCloud</p>
+              <a class="janela__abrir" href="#" target="_blank" rel="noopener noreferrer" data-sc-link hidden>abrir<span class="sr"> o SoundCloud (abre em nova aba)</span><svg class="ico ico-abre ico-abre--p" width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a>
+            </div>
+            <div class="janela__corpo">
+              <h3 class="janela__pergunta" id="sc-pergunta">O que eu curto de som experimental, deep house e techno?</h3>
+              <ul class="etiquetas" aria-label="Estilos">
+                <li>experimental</li>
+                <li>deep house</li>
+                <li>techno</li>
+              </ul>
+              <div class="moldura moldura--soundcloud" data-embed="soundcloud">
+                <div class="estado estado--embreve">
+                  <p class="estado__texto">Em breve: minhas faixas favoritas aqui.</p>
+                </div>
+              </div>
+              <a class="link-seta" href="#" target="_blank" rel="noopener noreferrer" data-sc-link hidden>Ouvir no SoundCloud <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Janela 3 · Medium -->
+          <article class="janela janela--medium" aria-labelledby="md-pergunta">
+            <div class="janela__barra">
+              <p class="janela__plataforma">Medium</p>
+              <a class="janela__abrir" href="https://eduaraujosa.medium.com/" target="_blank" rel="noopener noreferrer">abrir<span class="sr"> o Medium (abre em nova aba)</span><svg class="ico ico-abre ico-abre--p" width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a>
+            </div>
+            <div class="janela__corpo">
+              <h3 class="janela__pergunta" id="md-pergunta">O que eu penso sobre tudo fora dos periódicos?</h3>
+              <div class="feed" data-embed="medium" aria-live="polite">
+                <ul class="posts">
+                  <!-- Card de base: fica visível sem JavaScript ou se o feed falhar por completo. -->
+                  <li class="post">
+                    <div class="post__mini post__mini--iniciais" aria-hidden="true">PISA</div>
+                    <p class="post__data"><time datetime="2026-08-06">6 ago 2026</time></p>
+                    <h4 class="post__titulo">Uma outra perspectiva sobre o resultado do Brasil no PISA</h4>
+                    <a class="post__link" href="https://eduaraujosa.medium.com/uma-outra-perspectiva-sobre-o-resultado-do-brasil-no-pisa-057bbea021e1" target="_blank" rel="noopener noreferrer">Ler no Medium<span class="sr">: Uma outra perspectiva sobre o resultado do Brasil no PISA (abre em nova aba)</span><svg class="ico ico-abre ico-abre--p" width="14" height="14" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a>
+                  </li>
+                  <li class="post post--esqueleto" aria-hidden="true">
+                    <div class="post__mini esqueleto"></div>
+                    <div class="esqueleto esqueleto--linha" style="width:34%"></div>
+                    <div class="esqueleto esqueleto--titulo"></div>
+                    <div class="esqueleto esqueleto--titulo" style="width:70%"></div>
+                  </li>
+                  <li class="post post--esqueleto" aria-hidden="true">
+                    <div class="post__mini esqueleto"></div>
+                    <div class="esqueleto esqueleto--linha" style="width:34%"></div>
+                    <div class="esqueleto esqueleto--titulo"></div>
+                    <div class="esqueleto esqueleto--titulo" style="width:70%"></div>
+                  </li>
+                </ul>
+              </div>
+              <a class="link-seta" href="https://eduaraujosa.medium.com/" target="_blank" rel="noopener noreferrer">Todos os textos no Medium <span class="sr">(abre em nova aba)</span><svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Contato -->
+    <section class="contato" id="contato" aria-labelledby="contato-titulo">
+      <div class="contido">
+        <div class="convite">
+          <div class="convite__texto">
+            <h2 class="convite__titulo" id="contato-titulo">Vamos conversar?</h2>
+            <p class="convite__paragrafo">Se você precisa formar professores, criar um projeto educacional ou desenvolver uma solução tecnológica em educação, clique no botão e negocie comigo.</p>
+          </div>
+          <div class="convite__acao">
+            <span class="halo">
+              <a class="botao-convite" href="https://www.linkedin.com/in/eduaraujosa/" target="_blank" rel="noopener noreferrer">Entrar em contato<span class="sr"> pelo LinkedIn (abre em nova aba)</span></a>
+            </span>
+          </div>
+        </div>
+
+        <div class="perfis">
+          <p class="eyebrow" id="perfis-titulo">Onde a conversa continua</p>
+          <ul class="perfis__lista" aria-labelledby="perfis-titulo">
+            <li><a class="perfil" href="https://www.linkedin.com/in/eduaraujosa/" target="_blank" rel="noopener noreferrer"><span class="perfil__texto"><span class="perfil__nome">LinkedIn</span><span class="perfil__descricao">Trajetória e conexões profissionais</span></span><span class="sr">(abre em nova aba)</span><svg class="ico ico-abre" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a></li>
+            <li><a class="perfil" href="https://eduaraujosa.medium.com/" target="_blank" rel="noopener noreferrer"><span class="perfil__texto"><span class="perfil__nome">Medium</span><span class="perfil__descricao">Ensaios e reflexões</span></span><span class="sr">(abre em nova aba)</span><svg class="ico ico-abre" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a></li>
+            <li><a class="perfil" href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener noreferrer"><span class="perfil__texto"><span class="perfil__nome">Lattes</span><span class="perfil__descricao">Currículo acadêmico</span></span><span class="sr">(abre em nova aba)</span><svg class="ico ico-abre" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a></li>
+            <li><a class="perfil" href="https://orcid.org/0000-0002-3794-1926" target="_blank" rel="noopener noreferrer"><span class="perfil__texto"><span class="perfil__nome">ORCID</span><span class="perfil__descricao">Identificação de pesquisador</span></span><span class="sr">(abre em nova aba)</span><svg class="ico ico-abre" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a></li>
+            <li><a class="perfil" href="https://scholar.google.com/citations?user=Gs2jzSQAAAAJ&amp;hl=pt-BR" target="_blank" rel="noopener noreferrer"><span class="perfil__texto"><span class="perfil__nome">Google Acadêmico</span><span class="perfil__descricao">Consulta à produção</span></span><span class="sr">(abre em nova aba)</span><svg class="ico ico-abre" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a></li>
+            <li><a class="perfil" href="https://www.instagram.com/eduaraujosa" target="_blank" rel="noopener noreferrer"><span class="perfil__texto"><span class="perfil__nome">Instagram</span><span class="perfil__descricao">Perfil pessoal</span></span><span class="sr">(abre em nova aba)</span><svg class="ico ico-abre" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-abre"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape__barra contido">
+      <div class="marca marca--rodape">
+        <svg class="marca__logo" width="48" height="53" aria-hidden="true" focusable="false"><use href="#logo-cubo"/></svg>
+        <span class="marca__texto">
+          <span class="marca__nome">Eduardo Araújo</span>
+          <span class="marca__usuario">@eduaraujosa</span>
+        </span>
+      </div>
+      <p class="rodape__credito">Eduardo Vinícius Araújo de Albuquerque Sá · Recife, PE · 2026</p>
     </div>
-
-    <p class="perfis-academicos">
-      <a class="seta" href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener">Currículo Lattes<span class="sr-only"> (abre em nova aba)</span></a>
-      <a class="seta" href="https://orcid.org/0000-0002-3794-1926" target="_blank" rel="noopener">ORCID<span class="sr-only"> (abre em nova aba)</span></a>
-      <a class="seta" href="https://scholar.google.com/citations?user=Gs2jzSQAAAAJ&amp;hl=pt-BR" target="_blank" rel="noopener">Google Acadêmico<span class="sr-only"> (abre em nova aba)</span></a>
-    </p>
-  </section>
-
-  <!-- Textos -->
-  <section class="secao" id="textos" aria-labelledby="textos-titulo">
-    <p class="rotulo"><b>05</b> Textos</p>
-    <h2 id="textos-titulo">O que escrevo para ampliar a conversa</h2>
-    <p class="intro">Fora do formato acadêmico, escrevo ensaios para pensar em voz alta sobre educação, avaliação e o cotidiano da escola. São reflexões autorais, não publicações científicas.</p>
-
-    <article class="ensaio">
-      <p class="meta">Ensaio · Medium · <time datetime="2026-08-06">6 de agosto de 2026</time></p>
-      <h3><a href="https://eduaraujosa.medium.com/uma-outra-perspectiva-sobre-o-resultado-do-brasil-no-pisa-057bbea021e1" target="_blank" rel="noopener">Uma outra perspectiva sobre o resultado do Brasil no PISA<span class="sr-only"> (abre em nova aba)</span></a></h3>
-      <p>O resultado do PISA costuma virar ranking e manchete. Neste ensaio, proponho ler o desempenho brasileiro além da classificação: o que a tabela não mostra sobre desigualdades e condições de estudo e de trabalho docente, e por que bem-estar e pertencimento deveriam entrar na conversa sobre qualidade.</p>
-      <p><a class="seta" href="https://eduaraujosa.medium.com/uma-outra-perspectiva-sobre-o-resultado-do-brasil-no-pisa-057bbea021e1" target="_blank" rel="noopener">Ler o ensaio sobre o PISA no Medium<span class="sr-only"> (abre em nova aba)</span></a></p>
-    </article>
-    <p><a class="seta" href="https://eduaraujosa.medium.com/" target="_blank" rel="noopener">Ver todos os textos no Medium<span class="sr-only"> (abre em nova aba)</span></a></p>
-  </section>
-
-  <!-- Contato -->
-  <section class="secao" id="contato" aria-labelledby="contato-titulo">
-    <p class="rotulo"><b>06</b> Contato</p>
-    <h2 id="contato-titulo">A conversa continua</h2>
-    <p class="intro">Se você pesquisa, ensina ou trabalha com formação de professores e tecnologia educacional, gosto de trocar ideias sobre ensino de Ciências, autorregulação e experiências de aprendizagem. Para conversar ou propor uma colaboração, o melhor caminho é o LinkedIn.</p>
-    <div class="acoes">
-      <a class="botao" href="https://www.linkedin.com/in/eduaraujosa/" target="_blank" rel="noopener">Conversar pelo LinkedIn<span class="sr-only"> (abre em nova aba)</span></a>
-    </div>
-
-    <ul class="perfis" aria-label="Perfis públicos">
-      <li><a href="https://www.linkedin.com/in/eduaraujosa/" target="_blank" rel="noopener"><span class="nome">LinkedIn</span><span class="desc">Trajetória e conexões profissionais</span><span class="id">/in/eduaraujosa</span><span class="sr-only"> (abre em nova aba)</span></a></li>
-      <li><a href="https://eduaraujosa.medium.com/" target="_blank" rel="noopener"><span class="nome">Medium</span><span class="desc">Ensaios e reflexões sobre educação</span><span class="id">eduaraujosa</span><span class="sr-only"> (abre em nova aba)</span></a></li>
-      <li><a href="https://lattes.cnpq.br/7759686437947941" target="_blank" rel="noopener"><span class="nome">Lattes</span><span class="desc">Currículo acadêmico completo</span><span class="id">CNPq</span><span class="sr-only"> (abre em nova aba)</span></a></li>
-      <li><a href="https://orcid.org/0000-0002-3794-1926" target="_blank" rel="noopener"><span class="nome">ORCID</span><span class="desc">Identificação de pesquisador</span><span class="id">0000-0002-3794-1926</span><span class="sr-only"> (abre em nova aba)</span></a></li>
-      <li><a href="https://scholar.google.com/citations?user=Gs2jzSQAAAAJ&amp;hl=pt-BR" target="_blank" rel="noopener"><span class="nome">Google Acadêmico</span><span class="desc">Consulta à produção acadêmica</span><span class="id">perfil</span><span class="sr-only"> (abre em nova aba)</span></a></li>
-      <li><a href="https://www.instagram.com/eduaraujosa" target="_blank" rel="noopener"><span class="nome">Instagram</span><span class="desc">Perfil pessoal</span><span class="id">@eduaraujosa</span><span class="sr-only"> (abre em nova aba)</span></a></li>
-    </ul>
-  </section>
-</main>
-
-<footer class="rodape">
-  <img src="img/logo-edu-cubo.webp" width="520" height="471" loading="lazy" decoding="async"
-       alt="Logo EDU. em um cubo, com a rubrica EVAS e as palavras Educação e Tecnologia.">
-  <p>Eduardo Vinícius Araújo de Albuquerque Sá<br>@eduaraujosa · Recife, Pernambuco · 2026</p>
-</footer>
-</div>
-
-<script>
-/* Índice lateral: marca a seção em leitura. Sem o script, o índice continua funcionando como links. */
-(function () {
-  var links = document.querySelectorAll('.indice a');
-  if (!links.length || !('IntersectionObserver' in window)) return;
-  var mapa = {};
-  links.forEach(function (a) { mapa[a.getAttribute('href').slice(1)] = a; });
-  var obs = new IntersectionObserver(function (entradas) {
-    entradas.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      links.forEach(function (a) { a.removeAttribute('aria-current'); });
-      var a = mapa[e.target.id]; if (a) a.setAttribute('aria-current', 'true');
-    });
-  }, { rootMargin: '-35% 0px -60% 0px' });
-  Object.keys(mapa).forEach(function (id) { var s = document.getElementById(id); if (s) obs.observe(s); });
-})();
-</script>
+  </footer>
 </body>
 </html>
