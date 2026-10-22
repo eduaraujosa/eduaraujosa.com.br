@@ -20,7 +20,9 @@ Página única em HTML, CSS e JavaScript puros, sem framework e sem etapa de bui
 
 **SoundCloud.** Preencha `LIFESTYLE.soundcloud.perfil` em `js/site.js` com a URL do perfil ou da playlist. Enquanto estiver vazio, a janela mostra "Em breve" e não faz nenhuma chamada de rede. Quando a URL existir, inclua-a também no `sameAs` do JSON-LD do `index.html`.
 
-**Post do Instagram.** Troque `LIFESTYLE.instagram.postShortcode` (o trecho depois de `instagram.com/p/`) e o link do estado sem JavaScript no `index.html`.
+**Post do Instagram.** Troque `LIFESTYLE.instagram.postShortcode` (o trecho depois de `instagram.com/p/`) e o link do estado sem JavaScript no `index.html`. O embed usa `/embed/` (cabe em 320×568); `legenda: true` usa `/embed/captioned/`, que é mais alto e fica recortado.
+
+**Como o site sabe que um embed carregou.** Instagram e SoundCloud avisam a página por `postMessage` quando o conteúdo aparece. Sem esse aviso em 8 s, o iframe é removido e entra o estado de erro com o link direto (o evento `load` não serve, porque também dispara quando o navegador mostra uma página de erro).
 
 **Consentimento (LGPD).** Com `CONSENTIMENTO_EMBEDS = false` (padrão), Instagram e SoundCloud aparecem como uma fachada e só carregam depois do clique do visitante. Com `true`, carregam sozinhos quando a janela se aproxima da tela. O Medium é servido pelo próprio domínio e não depende disso.
 

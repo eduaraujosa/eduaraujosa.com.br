@@ -1,14 +1,20 @@
-/* ==========================================================================
-   eduaraujosa.com.br · v3
-   Sem dependências. O conteúdo essencial está no HTML; este arquivo só
-   acrescenta comportamento (menu, seção ativa, animação e Lifestyle).
-   ========================================================================== */
+/* eduaraujosa.com.br · v3
+   JavaScript puro, sem dependências. Tudo aqui é melhoria progressiva:
+   sem JS, o conteúdo e os links continuam no HTML. */
 
-/* Configuração das integrações da seção Lifestyle --------------------------- */
+'use strict';
+
+/* ==========================================================
+   Configuração das integrações da seção Lifestyle
+   ========================================================== */
+
 const LIFESTYLE = {
   instagram: {
     perfil: 'https://www.instagram.com/eduaraujosa',
-    postShortcode: 'DY7HMK6kbZx', // post de @eduaraujosa (conferido em 22/10/2026)
+    postShortcode: 'DY7HMK6kbZx',
+    // false = /embed/ (só a imagem e o cabeçalho, cabe em 320×568);
+    // true  = /embed/captioned/ (com legenda; fica mais alto e é recortado).
+    legenda: false,
   },
   soundcloud: {
     perfil: '', // PENDENTE: URL do perfil ou playlist do SoundCloud
@@ -19,515 +25,511 @@ const LIFESTYLE = {
     usuario: 'eduaraujosa',
     perfil: 'https://eduaraujosa.medium.com/',
     quantidade: 3,
-    endpoint: 'api/medium.php', // relativo à página: funciona na raiz e em /v3-previa/
+    // Caminho relativo à página: funciona na raiz e na pasta de prévia.
+    endpoint: 'api/medium.php',
   },
 };
 
-/* LGPD: com false, Instagram e SoundCloud só carregam depois de um clique na fachada. */
+// LGPD: com false, Instagram e SoundCloud só carregam depois de um clique
+// na "fachada". O feed do Medium vem do próprio domínio e não depende disso.
 const CONSENTIMENTO_EMBEDS = false;
 
-/* Tempo máximo para um embed ou o feed responder antes do estado de erro. */
 const TEMPO_LIMITE_MS = 8000;
 
-(function () {
-  'use strict';
+/* ========================================================== */
 
-  const raiz = document.documentElement;
-  const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const temIO = 'IntersectionObserver' in window;
+const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  /* Utilidades ------------------------------------------------------------- */
-  const SVG_NS = 'http://www.w3.org/2000/svg';
+function criar(tag, classe, texto) {
+  const el = document.createElement(tag);
+  if (classe) el.className = classe;
+  if (texto != null) el.textContent = texto;
+  return el;
+}
 
-  function el(tag, classe, texto) {
-    const n = document.createElement(tag);
-    if (classe) n.className = classe;
-    if (texto != null) n.textContent = texto;
-    return n;
+function icone(id, tamanho, classe) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('class', classe);
+  svg.setAttribute('width', String(tamanho));
+  svg.setAttribute('height', String(tamanho));
+  svg.setAttribute('aria-hidden', 'true');
+  svg.setAttribute('focusable', 'false');
+  const use = document.createElementNS(ns, 'use');
+  use.setAttribute('href', '#' + id);
+  svg.appendChild(use);
+  return svg;
+}
+
+function textoOculto(texto) {
+  return criar('span', 'sr', texto);
+}
+
+function linkExterno(classe, href, rotulo, ocultoExtra) {
+  const a = criar('a', classe, rotulo);
+  a.setAttribute('href', href);
+  a.setAttribute('target', '_blank');
+  a.setAttribute('rel', 'noopener noreferrer');
+  a.appendChild(textoOculto((ocultoExtra || '') + ' (abre em nova aba)'));
+  return a;
+}
+
+/* ---------- Menu (mobile) ---------- */
+
+function iniciarMenu() {
+  const menu = document.querySelector('.menu');
+  if (!menu) return;
+  const botao = menu.querySelector('.menu__botao');
+  const lista = menu.querySelector('.menu__lista');
+
+  function fechar(devolverFoco) {
+    menu.classList.remove('menu--aberto');
+    botao.setAttribute('aria-expanded', 'false');
+    if (devolverFoco) botao.focus();
   }
 
-  function icone(id, tamanho, classe) {
-    const svg = document.createElementNS(SVG_NS, 'svg');
-    svg.setAttribute('class', 'ico ' + classe);
-    svg.setAttribute('width', tamanho);
-    svg.setAttribute('height', tamanho);
-    svg.setAttribute('aria-hidden', 'true');
-    svg.setAttribute('focusable', 'false');
-    const use = document.createElementNS(SVG_NS, 'use');
-    use.setAttribute('href', '#' + id);
-    svg.appendChild(use);
-    return svg;
-  }
-
-  function linkExterno(classe, rotulo, href, rotuloOculto) {
-    const a = el('a', classe, rotulo);
-    a.setAttribute('href', href);
-    a.setAttribute('target', '_blank');
-    a.setAttribute('rel', 'noopener noreferrer');
-    a.appendChild(el('span', 'sr', (rotuloOculto || '') + ' (abre em nova aba)'));
-    return a;
-  }
-
-  /* Executa fn uma vez, quando o elemento chega a 300 px da tela. */
-  function aoAproximar(alvo, fn) {
-    if (!temIO) { fn(); return; }
-    const io = new IntersectionObserver(function (entradas) {
-      if (entradas.some(function (e) { return e.isIntersecting; })) {
-        io.disconnect();
-        fn();
-      }
-    }, { rootMargin: '300px 0px' });
-    io.observe(alvo);
-  }
-
-  /* 1. Menu ----------------------------------------------------------------- */
-  function iniciarMenu() {
-    const nav = document.querySelector('.menu');
-    if (!nav) return;
-    const botao = nav.querySelector('.menu__botao');
-    const lista = nav.querySelector('.menu__lista');
-
-    function abrir() {
-      nav.classList.add('menu--aberto');
+  botao.addEventListener('click', () => {
+    const aberto = botao.getAttribute('aria-expanded') === 'true';
+    if (aberto) {
+      fechar(false);
+    } else {
+      menu.classList.add('menu--aberto');
       botao.setAttribute('aria-expanded', 'true');
     }
-    function fechar(devolverFoco) {
-      if (!nav.classList.contains('menu--aberto')) return;
-      nav.classList.remove('menu--aberto');
-      botao.setAttribute('aria-expanded', 'false');
-      if (devolverFoco) botao.focus();
-    }
+  });
 
-    botao.addEventListener('click', function () {
-      if (nav.classList.contains('menu--aberto')) fechar(false); else abrir();
-    });
-    lista.addEventListener('click', function (e) {
-      if (e.target.closest('a')) fechar(false);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') fechar(true);
-    });
-    document.addEventListener('click', function (e) {
-      if (!nav.contains(e.target)) fechar(false);
-    });
-    window.matchMedia('(min-width: 900px)').addEventListener('change', function (e) {
-      if (e.matches) fechar(false);
-    });
+  lista.addEventListener('click', (e) => {
+    if (e.target.closest('a')) fechar(false);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('menu--aberto')) fechar(true);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (menu.classList.contains('menu--aberto') && !menu.contains(e.target)) fechar(false);
+  });
+}
+
+/* ---------- Item ativo do menu ---------- */
+
+function iniciarMenuAtivo() {
+  if (!('IntersectionObserver' in window)) return;
+  const links = new Map();
+  document.querySelectorAll('.menu__lista a[href^="#"]').forEach((a) => {
+    links.set(a.getAttribute('href').slice(1), a);
+  });
+  const secoes = ['inicio', 'sobre', 'trajetoria', 'publicacoes', 'lifestyle', 'contato']
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  const visiveis = new Set();
+
+  function atualizar() {
+    // A seção ativa é a última (na ordem da página) que cruza a faixa central.
+    let atual = null;
+    secoes.forEach((s) => { if (visiveis.has(s.id)) atual = s.id; });
+    // No fim da página, o contato fica ativo mesmo que seja curto.
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) atual = 'contato';
+    links.forEach((a, id) => a.classList.toggle('ativo', id === atual));
   }
 
-  /* 2. Item ativo do menu (seção visível) ----------------------------------- */
-  function iniciarSecaoAtiva() {
-    if (!temIO) return;
-    const links = Array.from(document.querySelectorAll('.menu__lista a[href^="#"]'));
-    const porId = new Map(links.map(function (a) { return [a.getAttribute('href').slice(1), a]; }));
-    const secoes = Array.from(document.querySelectorAll('main section[id]'));
-    const visiveis = new Set();
+  const io = new IntersectionObserver((entradas) => {
+    entradas.forEach((e) => {
+      if (e.isIntersecting) visiveis.add(e.target.id);
+      else visiveis.delete(e.target.id);
+    });
+    atualizar();
+  }, { rootMargin: '-35% 0px -60% 0px' });
 
-    function atualizar() {
-      // A seção ativa é a última (na ordem da página) que cruza a faixa central da tela.
-      let ativa = null;
-      secoes.forEach(function (s) { if (visiveis.has(s.id)) ativa = s.id; });
-      links.forEach(function (a) { a.classList.remove('ativo'); a.removeAttribute('aria-current'); });
-      const link = ativa && porId.get(ativa);
-      if (link) {
-        link.classList.add('ativo');
-        link.setAttribute('aria-current', 'true');
+  secoes.forEach((s) => io.observe(s));
+  window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) atualizar();
+  }, { passive: true });
+}
+
+/* ---------- Trajetória: entrada suave ---------- */
+
+function iniciarAnimacaoTrajetoria() {
+  if (reduzMovimento.matches || !('IntersectionObserver' in window)) return;
+  const linha = document.querySelector('.linha-tempo');
+  if (!linha) return;
+  const capitulos = linha.querySelectorAll('.capitulo');
+
+  // Só esconde o que ainda está abaixo da dobra; o que já está visível fica visível.
+  const limite = window.innerHeight;
+  capitulos.forEach((c) => {
+    if (c.getBoundingClientRect().top < limite) c.classList.add('visivel');
+  });
+  linha.classList.add('anima');
+
+  const io = new IntersectionObserver((entradas, obs) => {
+    entradas.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visivel');
+        obs.unobserve(e.target);
       }
-    }
-
-    const io = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (e) {
-        if (e.isIntersecting) visiveis.add(e.target.id); else visiveis.delete(e.target.id);
-      });
-      atualizar();
-    }, { rootMargin: '-40% 0px -55% 0px' });
-
-    secoes.forEach(function (s) { io.observe(s); });
-  }
-
-  /* 3. Entrada suave dos capítulos da Trajetória ---------------------------- */
-  function iniciarAnimacaoTrajetoria() {
-    if (!temIO || movimentoReduzido.matches) return;
-    const capitulos = Array.from(document.querySelectorAll('.capitulo'));
-    const io = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('visivel');
-          io.unobserve(e.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -10% 0px' });
-
-    capitulos.forEach(function (c) {
-      // Só esconde o que ainda está abaixo da dobra: nada visível pisca ou some.
-      if (c.getBoundingClientRect().top > window.innerHeight) {
-        c.classList.add('anima');
-        io.observe(c);
-      }
     });
-  }
+  }, { rootMargin: '0px 0px -10% 0px' });
+  capitulos.forEach((c) => { if (!c.classList.contains('visivel')) io.observe(c); });
+}
 
-  /* 4. Lifestyle: estados das molduras -------------------------------------- */
-  function limpar(moldura) {
-    while (moldura.firstChild) moldura.removeChild(moldura.firstChild);
-  }
+/* ---------- Lifestyle: utilitários de embed ---------- */
 
-  function estadoCarregando(moldura, variante) {
-    const c = el('div', 'carregando');
-    c.setAttribute('role', 'status');
-    c.appendChild(el('span', 'sr', 'Carregando…'));
-    if (variante === 'instagram') {
-      c.appendChild(el('div', 'carregando__bloco carregando__bloco--topo'));
-      c.appendChild(el('div', 'carregando__bloco carregando__bloco--grande'));
-      c.appendChild(el('div', 'carregando__bloco carregando__bloco--linha'));
-      c.appendChild(el('div', 'carregando__bloco carregando__bloco--linha curta'));
-    } else {
-      c.appendChild(el('div', 'carregando__bloco carregando__bloco--grande'));
-      c.appendChild(el('div', 'carregando__bloco carregando__bloco--linha'));
-      c.appendChild(el('div', 'carregando__bloco carregando__bloco--linha'));
-      c.appendChild(el('div', 'carregando__bloco carregando__bloco--linha curta'));
+function quandoPerto(el, fn) {
+  if (!('IntersectionObserver' in window)) { fn(); return; }
+  const io = new IntersectionObserver((entradas) => {
+    if (entradas.some((e) => e.isIntersecting)) {
+      io.disconnect();
+      fn();
     }
-    moldura.appendChild(c);
-    moldura.setAttribute('aria-busy', 'true');
-    return c;
+  }, { rootMargin: '300px 0px' });
+  io.observe(el);
+}
+
+function limparMoldura(moldura) {
+  moldura.querySelectorAll('.estado, .fachada, .carregando, iframe').forEach((n) => n.remove());
+}
+
+function mostrarCarregando(moldura, rotulo) {
+  const bloco = criar('div', 'carregando');
+  bloco.setAttribute('role', 'status');
+  bloco.appendChild(textoOculto(rotulo));
+  const l1 = criar('div', 'esqueleto esqueleto--linha');
+  l1.style.width = '45%';
+  const meio = criar('div', 'esqueleto carregando__bloco');
+  const l2 = criar('div', 'esqueleto esqueleto--linha');
+  l2.style.width = '80%';
+  const l3 = criar('div', 'esqueleto esqueleto--linha');
+  l3.style.width = '60%';
+  [l1, meio, l2, l3].forEach((n) => { n.setAttribute('aria-hidden', 'true'); bloco.appendChild(n); });
+  moldura.appendChild(bloco);
+}
+
+function mostrarErro(moldura, texto, rotuloLink, href) {
+  limparMoldura(moldura);
+  const estado = criar('div', 'estado');
+  estado.setAttribute('role', 'status');
+  estado.appendChild(criar('p', 'estado__texto', texto));
+  const a = linkExterno('estado__link', href, rotuloLink);
+  a.appendChild(icone('i-abre', 16, 'ico ico-abre'));
+  estado.appendChild(a);
+  moldura.appendChild(estado);
+}
+
+function mostrarFachada(moldura, plataforma, aoClicar) {
+  limparMoldura(moldura);
+  const fachada = criar('div', 'fachada');
+  fachada.appendChild(criar('p', 'fachada__rotulo', 'Conteúdo externo'));
+  fachada.appendChild(criar('p', 'fachada__texto', 'Ao carregar, o ' + plataforma + ' pode registrar cookies no seu navegador.'));
+  const botao = criar('button', 'botao', 'Carregar conteúdo do ' + plataforma);
+  botao.type = 'button';
+  botao.addEventListener('click', () => aoClicar(true));
+  fachada.appendChild(botao);
+  moldura.appendChild(fachada);
+}
+
+/* Cria o iframe e espera o sinal de que o conteúdo da plataforma realmente
+   carregou: Instagram e SoundCloud enviam uma mensagem (postMessage) ao
+   montar o embed. O evento "load" não serve como prova, porque ele também
+   dispara quando o navegador mostra uma página de erro dentro do iframe.
+   Sem esse sinal em 8 s, o iframe é removido e entra o estado de erro. */
+function carregarIframe(moldura, opcoes) {
+  limparMoldura(moldura);
+  mostrarCarregando(moldura, opcoes.rotuloCarregando);
+
+  const iframe = document.createElement('iframe');
+  Object.entries(opcoes.atributos).forEach(([k, v]) => iframe.setAttribute(k, v));
+  iframe.setAttribute('title', opcoes.titulo);
+  iframe.setAttribute('loading', 'lazy');
+  iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+
+  let resolvido = false;
+
+  function encerrar() {
+    resolvido = true;
+    window.clearTimeout(timer);
+    window.removeEventListener('message', aoReceber);
   }
 
-  function estadoErro(moldura, texto, rotulo, href, plataforma) {
-    limpar(moldura);
-    moldura.removeAttribute('aria-busy');
-    moldura.dataset.estado = 'erro';
-    const box = el('div', 'estado estado--erro');
-    box.setAttribute('role', 'status');
-    box.appendChild(el('p', 'estado__texto', texto));
-    const a = linkExterno('estado__link', rotulo, href, ' no ' + plataforma);
-    a.appendChild(icone('i-abre', 16, 'ico-abre'));
-    box.appendChild(a);
-    moldura.appendChild(box);
+  function sucesso() {
+    if (resolvido) return;
+    encerrar();
+    iframe.classList.add('pronto');
+    const carregando = moldura.querySelector('.carregando');
+    if (carregando) carregando.remove();
   }
 
-  function estadoFachada(moldura, plataforma, aoCarregar) {
-    limpar(moldura);
-    moldura.dataset.estado = 'fachada';
-    const box = el('div', 'fachada');
-    box.appendChild(el('p', 'fachada__rotulo', 'Conteúdo externo'));
-    box.appendChild(el('p', 'fachada__texto', 'Ao carregar, o ' + plataforma + ' pode registrar cookies no seu navegador.'));
-    const botao = el('button', 'botao', 'Carregar conteúdo do ' + plataforma);
-    botao.type = 'button';
-    botao.addEventListener('click', function () {
-      aoCarregar();
-      // Leva o foco para a moldura, para não se perder quando o botão sai da página.
-      moldura.setAttribute('tabindex', '-1');
-      moldura.focus({ preventScroll: true });
-    });
-    box.appendChild(botao);
-    moldura.appendChild(box);
+  function falha() {
+    if (resolvido) return;
+    encerrar();
+    opcoes.aoFalhar();
   }
 
-  /*
-   * Cria o iframe com altura reservada, mostra o esqueleto enquanto carrega e
-   * cai no estado de erro se não houver confirmação em TEMPO_LIMITE_MS.
-   * confirmar(iframe, ok): opcional; quando existe, só ela marca o sucesso
-   * (o evento "load" também dispara em páginas de erro).
-   */
-  function montarIframe(moldura, opcoes) {
-    limpar(moldura);
-    moldura.dataset.estado = 'carregando';
-    const carregando = estadoCarregando(moldura, opcoes.variante);
-
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('title', opcoes.titulo);
-    iframe.setAttribute('loading', 'lazy');
-    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-    Object.keys(opcoes.atributos || {}).forEach(function (k) { iframe.setAttribute(k, opcoes.atributos[k]); });
-
-    let resolvido = false;
-    function sucesso() {
-      if (resolvido) return;
-      resolvido = true;
-      clearTimeout(relogio);
-      iframe.classList.add('pronto');
-      carregando.remove();
-      moldura.removeAttribute('aria-busy');
-      moldura.dataset.estado = 'ok';
+  function aoReceber(e) {
+    if (e.origin !== opcoes.origemMensagem || e.source !== iframe.contentWindow) return;
+    let dados = e.data;
+    if (typeof dados === 'string') {
+      try { dados = JSON.parse(dados); } catch (erro) { return; }
     }
-    function falha() {
-      if (resolvido) return;
-      resolvido = true;
-      clearTimeout(relogio);
-      if (opcoes.aoFalhar) opcoes.aoFalhar();
-      opcoes.erro();
-    }
-    const relogio = setTimeout(falha, TEMPO_LIMITE_MS);
-
-    if (opcoes.confirmar) {
-      opcoes.confirmar(iframe, sucesso);
-    } else {
-      iframe.addEventListener('load', sucesso);
-    }
-    iframe.addEventListener('error', falha);
-
-    iframe.setAttribute('src', opcoes.src);
-    moldura.appendChild(iframe);
+    if (dados && opcoes.mensagemDeSucesso(dados)) sucesso();
   }
 
-  /* 4a. Instagram ----------------------------------------------------------- */
-  function iniciarInstagram() {
-    const moldura = document.querySelector('[data-embed="instagram"]');
-    if (!moldura) return;
-    const cfg = LIFESTYLE.instagram;
-    document.querySelectorAll('[data-ig-perfil]').forEach(function (a) { a.setAttribute('href', cfg.perfil); });
+  const timer = window.setTimeout(falha, TEMPO_LIMITE_MS);
+  window.addEventListener('message', aoReceber);
+  iframe.addEventListener('error', falha);
 
-    function erro() {
-      estadoErro(moldura, 'Não foi possível carregar o post.', 'Ver no Instagram', cfg.perfil, 'Instagram');
-    }
+  iframe.setAttribute('src', opcoes.src);
+  moldura.appendChild(iframe);
+}
 
-    if (!/^[A-Za-z0-9_-]{5,20}$/.test(cfg.postShortcode || '')) { erro(); return; }
+/* ---------- Instagram ---------- */
 
-    let ouvinte = null;
-    function carregar() {
-      montarIframe(moldura, {
-        variante: 'instagram',
-        titulo: 'Post do Instagram de @eduaraujosa',
-        src: 'https://www.instagram.com/p/' + encodeURIComponent(cfg.postShortcode) + '/embed/',
-        atributos: { width: '320', height: '568', frameborder: '0', scrolling: 'no', allowtransparency: 'true' },
-        // O embed do Instagram avisa a página quando o post foi montado (mensagens MOUNTED/MEASURE).
-        // Sem esse aviso (post removido, privado ou domínio bloqueado), vale o estado de erro.
-        confirmar: function (iframe, ok) {
-          ouvinte = function (e) {
-            if (e.origin !== 'https://www.instagram.com' || e.source !== iframe.contentWindow) return;
-            let dados = e.data;
-            if (typeof dados === 'string') { try { dados = JSON.parse(dados); } catch (_) { return; } }
-            if (dados && (dados.type === 'MOUNTED' || dados.type === 'MEASURE')) {
-              window.removeEventListener('message', ouvinte);
-              ok();
-            }
-          };
-          window.addEventListener('message', ouvinte);
-        },
-        aoFalhar: function () { if (ouvinte) window.removeEventListener('message', ouvinte); },
-        erro: erro,
-      });
-    }
+function iniciarInstagram() {
+  const cfg = LIFESTYLE.instagram;
+  const moldura = document.querySelector('[data-embed="instagram"]');
+  if (!moldura) return;
 
-    if (CONSENTIMENTO_EMBEDS) {
-      limpar(moldura);
-      estadoCarregando(moldura, 'instagram');
-      aoAproximar(moldura, carregar);
-    } else {
-      estadoFachada(moldura, 'Instagram', carregar);
-    }
+  document.querySelectorAll('[data-ig-perfil]').forEach((a) => a.setAttribute('href', cfg.perfil));
+
+  const falhar = () => mostrarErro(moldura, 'Não foi possível carregar o post.', 'Ver no Instagram', cfg.perfil);
+
+  if (!/^[A-Za-z0-9_-]{5,40}$/.test(cfg.postShortcode || '')) {
+    falhar();
+    return;
   }
 
-  /* 4b. SoundCloud ---------------------------------------------------------- */
-  function urlPlayerDireto(perfil, cor) {
-    return 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(perfil) +
-      '&color=%23' + cor + '&auto_play=false&show_comments=false&visual=false';
-  }
+  const carregar = () => carregarIframe(moldura, {
+    src: 'https://www.instagram.com/p/' + encodeURIComponent(cfg.postShortcode) + '/embed/' + (cfg.legenda ? 'captioned/' : ''),
+    titulo: 'Post do Instagram de @eduaraujosa',
+    rotuloCarregando: 'Carregando o post do Instagram',
+    atributos: { width: '320', height: '568', frameborder: '0', scrolling: 'no', allowtransparency: 'true' },
+    origemMensagem: 'https://www.instagram.com',
+    // O embed avisa com { type: "MEASURE" } e { type: "MOUNTED" } quando o post aparece.
+    mensagemDeSucesso: (d) => d.type === 'MEASURE' || d.type === 'MOUNTED',
+    aoFalhar: falhar,
+  });
 
-  function srcPorOEmbed(perfil, cor) {
-    const ctrl = 'AbortController' in window ? new AbortController() : null;
-    const t = ctrl ? setTimeout(function () { ctrl.abort(); }, TEMPO_LIMITE_MS) : null;
-    const params = new URLSearchParams({
-      format: 'json', url: perfil, maxheight: '450', color: cor, auto_play: 'false', show_comments: 'false',
-    });
-    return fetch('https://soundcloud.com/oembed?' + params.toString(), { signal: ctrl ? ctrl.signal : undefined, credentials: 'omit' })
-      .then(function (r) { if (!r.ok) throw new Error('oEmbed ' + r.status); return r.json(); })
-      .then(function (j) {
-        // Não injeta o HTML recebido: só extrai o src do iframe e o valida.
-        const doc = new DOMParser().parseFromString(String(j && j.html || ''), 'text/html');
-        const frame = doc.querySelector('iframe');
-        const src = frame ? frame.getAttribute('src') : '';
-        if (!src || src.indexOf('https://w.soundcloud.com/player/') !== 0) throw new Error('src inválido');
-        const u = new URL(src);
-        u.searchParams.set('auto_play', 'false');
-        return u.toString();
-      })
-      .finally(function () { if (t) clearTimeout(t); });
-  }
-
-  function iniciarSoundCloud() {
-    const moldura = document.querySelector('[data-embed="soundcloud"]');
-    if (!moldura) return;
-    const cfg = LIFESTYLE.soundcloud;
-    const perfil = (cfg.perfil || '').trim();
-    const links = document.querySelectorAll('[data-sc-link]');
-
-    // Perfil pendente: mantém o estado "Em breve" do HTML, sem chamadas de rede.
-    let valido = false;
-    try {
-      const u = new URL(perfil);
-      valido = u.protocol === 'https:' && /(^|\.)soundcloud\.com$/.test(u.hostname) && !/^\/discover\b/.test(u.pathname);
-    } catch (_) { valido = false; }
-    if (!valido) {
-      links.forEach(function (a) { a.hidden = true; });
-      return;
-    }
-
-    links.forEach(function (a) { a.setAttribute('href', perfil); a.hidden = false; });
-
-    function erro() {
-      estadoErro(moldura, 'O player não carregou.', 'Ouvir no SoundCloud', perfil, 'SoundCloud');
-    }
-
-    function carregar() {
-      limpar(moldura);
-      estadoCarregando(moldura, 'soundcloud');
-      srcPorOEmbed(perfil, cfg.cor)
-        .catch(function () { return urlPlayerDireto(perfil, cfg.cor); })
-        .then(function (src) {
-          montarIframe(moldura, {
-            variante: 'soundcloud',
-            titulo: 'Player do SoundCloud com faixas de Eduardo Araújo',
-            src: src,
-            atributos: { width: '100%', height: String(cfg.alturaPx), frameborder: '0', scrolling: 'no', allow: 'encrypted-media' },
-            erro: erro,
-          });
-        });
-    }
-
-    if (CONSENTIMENTO_EMBEDS) {
-      limpar(moldura);
-      estadoCarregando(moldura, 'soundcloud');
-      aoAproximar(moldura, carregar);
-    } else {
-      estadoFachada(moldura, 'SoundCloud', carregar);
-    }
-  }
-
-  /* 4c. Medium -------------------------------------------------------------- */
-  const HOSTS_LINK = ['medium.com', 'eduaraujosa.medium.com'];
-  const HOSTS_IMAGEM = ['cdn-images-1.medium.com', 'miro.medium.com'];
-
-  function urlSegura(valor, hosts) {
-    try {
-      const u = new URL(String(valor));
-      if (u.protocol !== 'https:' || hosts.indexOf(u.hostname) === -1) return null;
-      return u.toString();
-    } catch (_) { return null; }
-  }
-
-  // "6 AGO 2026": dia, mês abreviado e ano, sem "de" nem ponto (a caixa alta vem do CSS).
-  function formatarData(d) {
-    const partes = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'America/Recife' }).formatToParts(d);
-    const pega = function (tipo) {
-      const p = partes.find(function (x) { return x.type === tipo; });
-      return p ? p.value.replace('.', '') : '';
-    };
-    return [pega('day'), pega('month'), pega('year')].join(' ');
-  }
-
-  // Sigla em caixa alta do título (ex.: "PISA") ou as iniciais das duas primeiras palavras longas.
-  function iniciais(titulo) {
-    const palavras = String(titulo).split(/\s+/).filter(Boolean);
-    const sigla = palavras.filter(function (p) { return /^[A-ZÀ-Ý0-9]{2,6}$/.test(p.replace(/[^\wÀ-ÿ]/g, '')); }).pop();
-    if (sigla) return sigla.replace(/[^\wÀ-ÿ]/g, '');
-    return palavras.filter(function (p) { return p.length > 3; }).slice(0, 2)
-      .map(function (p) { return p.charAt(0).toUpperCase(); }).join('') || 'M';
-  }
-
-  function blocoIniciais(titulo) {
-    const b = el('div', 'post__mini post__mini--iniciais', iniciais(titulo));
-    b.setAttribute('aria-hidden', 'true');
-    return b;
-  }
-
-  function cardPost(item) {
-    const li = el('li', 'post');
-    if (item.miniatura) {
-      const img = el('img', 'post__mini');
-      img.setAttribute('src', item.miniatura);
-      img.setAttribute('alt', '');
-      img.setAttribute('width', '344');
-      img.setAttribute('height', '190');
-      img.setAttribute('loading', 'lazy');
-      img.setAttribute('decoding', 'async');
-      img.setAttribute('referrerpolicy', 'no-referrer');
-      img.addEventListener('error', function () { img.replaceWith(blocoIniciais(item.titulo)); });
-      li.appendChild(img);
-    } else {
-      li.appendChild(blocoIniciais(item.titulo));
-    }
-    const p = el('p', 'post__data');
-    const time = el('time', null, formatarData(item.data));
-    time.setAttribute('datetime', item.data.toISOString().slice(0, 10));
-    p.appendChild(time);
-    li.appendChild(p);
-    li.appendChild(el('h4', 'post__titulo', item.titulo));
-    const a = linkExterno('post__link', 'Ler no Medium', item.link, ': ' + item.titulo);
-    a.appendChild(icone('i-abre', 14, 'ico-abre ico-abre--p'));
-    li.appendChild(a);
-    return li;
-  }
-
-  function validarItens(json, quantidade) {
-    const lista = json && Array.isArray(json.items) ? json.items : [];
-    const itens = [];
-    for (let i = 0; i < lista.length && itens.length < quantidade; i++) {
-      const it = lista[i] || {};
-      const titulo = typeof it.titulo === 'string' ? it.titulo.trim() : '';
-      const link = urlSegura(it.link, HOSTS_LINK);
-      const data = new Date(it.data);
-      if (!titulo || !link || isNaN(data.getTime())) continue;
-      itens.push({ titulo: titulo, link: link, data: data, miniatura: urlSegura(it.miniatura, HOSTS_IMAGEM) });
-    }
-    return itens;
-  }
-
-  function iniciarMedium() {
-    const feed = document.querySelector('[data-embed="medium"]');
-    if (!feed) return;
-    const lista = feed.querySelector('.posts');
-    const cfg = LIFESTYLE.medium;
-
-    function falhou() {
-      // Mantém o card de base (PISA) e troca os esqueletos por um aviso com link.
-      lista.querySelectorAll('.post--esqueleto').forEach(function (n) { n.remove(); });
-      const aviso = el('li', 'post post--aviso');
-      aviso.setAttribute('role', 'status');
-      aviso.appendChild(el('p', null, 'Não foi possível carregar os textos agora.'));
-      const a = linkExterno('estado__link', 'Ler no Medium', cfg.perfil, ' no Medium');
-      a.appendChild(icone('i-abre', 16, 'ico-abre'));
-      aviso.appendChild(a);
-      lista.appendChild(aviso);
-      feed.removeAttribute('aria-busy');
-      feed.dataset.estado = 'erro';
-    }
-
-    function carregar() {
-      feed.setAttribute('aria-busy', 'true');
-      const ctrl = 'AbortController' in window ? new AbortController() : null;
-      const t = setTimeout(function () { if (ctrl) ctrl.abort(); }, TEMPO_LIMITE_MS);
-      fetch(cfg.endpoint, { signal: ctrl ? ctrl.signal : undefined, headers: { Accept: 'application/json' } })
-        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-        .then(function (json) {
-          const itens = validarItens(json, cfg.quantidade);
-          if (!itens.length) throw new Error('feed vazio');
-          const novos = itens.map(cardPost);
-          lista.replaceChildren.apply(lista, novos);
-          feed.removeAttribute('aria-busy');
-          feed.dataset.estado = 'ok';
-        })
-        .catch(falhou)
-        .finally(function () { clearTimeout(t); });
-    }
-
-    aoAproximar(feed, carregar);
-  }
-
-  /* Início ------------------------------------------------------------------ */
-  function iniciar() {
-    iniciarMenu();
-    iniciarSecaoAtiva();
-    iniciarAnimacaoTrajetoria();
-    iniciarInstagram();
-    iniciarSoundCloud();
-    iniciarMedium();
-    raiz.classList.add('js-pronto');
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', iniciar);
+  if (CONSENTIMENTO_EMBEDS) {
+    limparMoldura(moldura);
+    mostrarCarregando(moldura, 'Carregando o post do Instagram');
+    quandoPerto(moldura, carregar);
   } else {
-    iniciar();
+    mostrarFachada(moldura, 'Instagram', carregar);
   }
-})();
+}
+
+/* ---------- SoundCloud ---------- */
+
+function srcPlayerSoundCloud(perfil, cor) {
+  return 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(perfil) +
+    '&color=' + encodeURIComponent('#' + cor) +
+    '&auto_play=false&show_comments=false&visual=false';
+}
+
+async function obterSrcSoundCloud(cfg) {
+  const url = 'https://soundcloud.com/oembed?format=json' +
+    '&url=' + encodeURIComponent(cfg.perfil) +
+    '&maxheight=' + cfg.alturaPx +
+    '&color=' + cfg.cor +
+    '&auto_play=false&show_comments=false';
+  const controle = new AbortController();
+  const timer = window.setTimeout(() => controle.abort(), TEMPO_LIMITE_MS);
+  try {
+    const resp = await fetch(url, { signal: controle.signal, credentials: 'omit' });
+    if (!resp.ok) throw new Error('oEmbed ' + resp.status);
+    const dados = await resp.json();
+    // Não injeta o HTML do oEmbed: só extrai e valida o src do iframe.
+    const tpl = document.createElement('template');
+    tpl.innerHTML = typeof dados.html === 'string' ? dados.html : '';
+    const iframe = tpl.content.querySelector('iframe');
+    const src = iframe ? iframe.getAttribute('src') || '' : '';
+    if (src.indexOf('https://w.soundcloud.com/player/') !== 0) throw new Error('src inválido');
+    return src;
+  } catch (e) {
+    // Alternativa sem chamada de rede extra.
+    return srcPlayerSoundCloud(cfg.perfil, cfg.cor);
+  } finally {
+    window.clearTimeout(timer);
+  }
+}
+
+function iniciarSoundCloud() {
+  const cfg = LIFESTYLE.soundcloud;
+  const moldura = document.querySelector('[data-embed="soundcloud"]');
+  if (!moldura) return;
+
+  // Perfil pendente: mantém o estado "Em breve" do HTML e não chama a API.
+  const perfil = (cfg.perfil || '').trim();
+  if (!/^https:\/\/(www\.|m\.)?soundcloud\.com\/[^\s]+$/.test(perfil) || /soundcloud\.com\/discover/.test(perfil)) return;
+
+  document.querySelectorAll('[data-sc-link]').forEach((a) => {
+    a.setAttribute('href', perfil);
+    a.hidden = false;
+  });
+
+  const falhar = () => mostrarErro(moldura, 'O player não carregou.', 'Ouvir no SoundCloud', perfil);
+
+  const carregar = async () => {
+    limparMoldura(moldura);
+    mostrarCarregando(moldura, 'Carregando o player do SoundCloud');
+    const src = await obterSrcSoundCloud({ ...cfg, perfil });
+    carregarIframe(moldura, {
+      src,
+      titulo: 'Player do SoundCloud com faixas de Eduardo Araújo',
+      rotuloCarregando: 'Carregando o player do SoundCloud',
+      atributos: { width: '100%', height: String(cfg.alturaPx), frameborder: '0', scrolling: 'no', allow: 'encrypted-media' },
+      origemMensagem: 'https://w.soundcloud.com',
+      // O widget envia { method: "ready" } quando o player está pronto.
+      mensagemDeSucesso: (d) => d.method === 'ready',
+      aoFalhar: falhar,
+    });
+  };
+
+  if (CONSENTIMENTO_EMBEDS) {
+    limparMoldura(moldura);
+    mostrarCarregando(moldura, 'Carregando o player do SoundCloud');
+    quandoPerto(moldura, carregar);
+  } else {
+    mostrarFachada(moldura, 'SoundCloud', carregar);
+  }
+}
+
+/* ---------- Medium ---------- */
+
+const HOSTS_LINK_MEDIUM = ['medium.com', 'eduaraujosa.medium.com'];
+const HOSTS_MINIATURA_MEDIUM = ['cdn-images-1.medium.com', 'miro.medium.com'];
+
+function urlSegura(valor, hosts) {
+  try {
+    const u = new URL(valor);
+    return u.protocol === 'https:' && hosts.indexOf(u.hostname) !== -1 ? u.href : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+// "6 AGO 2026": dia, mês abreviado e ano (a caixa alta vem do CSS).
+function formatarData(iso) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return '';
+  const partes = new Intl.DateTimeFormat('pt-BR', {
+    day: 'numeric', month: 'short', year: 'numeric', timeZone: 'America/Recife',
+  }).formatToParts(d);
+  const pega = (tipo) => (partes.find((p) => p.type === tipo) || {}).value || '';
+  return [pega('day'), pega('month').replace('.', ''), pega('year')].join(' ');
+}
+
+// Sem miniatura: usa uma sigla em caixa alta do título (ex.: "PISA");
+// senão, as iniciais das duas primeiras palavras longas.
+function iniciais(titulo) {
+  const sigla = (titulo.match(/\b[A-ZÀ-Ý]{2,6}\b/g) || []).pop();
+  if (sigla) return sigla;
+  const palavras = titulo.split(/\s+/).filter((p) => p.length > 3);
+  return palavras.slice(0, 2).map((p) => p[0].toUpperCase()).join('') || 'M';
+}
+
+function cardPost(item) {
+  const li = criar('li', 'post');
+  const titulo = String(item.titulo || '').trim();
+  const miniatura = item.miniatura ? urlSegura(item.miniatura, HOSTS_MINIATURA_MEDIUM) : null;
+
+  if (miniatura) {
+    const img = criar('img', 'post__mini');
+    img.setAttribute('src', miniatura);
+    img.setAttribute('alt', '');
+    img.setAttribute('width', '360');
+    img.setAttribute('height', '190');
+    img.setAttribute('loading', 'lazy');
+    img.setAttribute('decoding', 'async');
+    img.setAttribute('referrerpolicy', 'no-referrer');
+    img.addEventListener('error', () => {
+      const bloco = criar('div', 'post__mini post__mini--iniciais', iniciais(titulo));
+      bloco.setAttribute('aria-hidden', 'true');
+      img.replaceWith(bloco);
+    });
+    li.appendChild(img);
+  } else {
+    const bloco = criar('div', 'post__mini post__mini--iniciais', iniciais(titulo));
+    bloco.setAttribute('aria-hidden', 'true');
+    li.appendChild(bloco);
+  }
+
+  const dataP = criar('p', 'post__data');
+  const time = criar('time', null, formatarData(item.data));
+  if (item.data) time.setAttribute('datetime', String(item.data));
+  dataP.appendChild(time);
+  li.appendChild(dataP);
+
+  li.appendChild(criar('h4', 'post__titulo', titulo));
+
+  const link = linkExterno('post__link', item.link, 'Ler no Medium', ': ' + titulo);
+  link.appendChild(icone('i-abre', 14, 'ico ico-abre ico-abre--p'));
+  li.appendChild(link);
+  return li;
+}
+
+function falhaMedium(lista) {
+  lista.querySelectorAll('.post--esqueleto').forEach((n) => n.remove());
+  const li = criar('li', 'post post--falha');
+  li.appendChild(criar('p', 'estado__texto', 'Não foi possível carregar os textos agora.'));
+  const a = linkExterno('estado__link', LIFESTYLE.medium.perfil, 'Ler no Medium');
+  a.appendChild(icone('i-abre', 16, 'ico ico-abre'));
+  li.appendChild(a);
+  lista.appendChild(li);
+}
+
+async function carregarMedium(feed) {
+  const lista = feed.querySelector('.posts');
+  const controle = new AbortController();
+  const timer = window.setTimeout(() => controle.abort(), TEMPO_LIMITE_MS);
+  try {
+    const resp = await fetch(LIFESTYLE.medium.endpoint, {
+      signal: controle.signal,
+      headers: { Accept: 'application/json' },
+      credentials: 'same-origin',
+    });
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const dados = await resp.json();
+    const itens = (Array.isArray(dados.items) ? dados.items : [])
+      .map((i) => ({ ...i, link: urlSegura(i && i.link, HOSTS_LINK_MEDIUM) }))
+      .filter((i) => i.link && typeof i.titulo === 'string' && i.titulo.trim())
+      .slice(0, LIFESTYLE.medium.quantidade);
+
+    if (!itens.length) throw new Error(dados.erro || 'feed vazio');
+
+    const frag = document.createDocumentFragment();
+    itens.forEach((i) => frag.appendChild(cardPost(i)));
+    lista.replaceChildren(frag);
+    lista.setAttribute('data-estado', 'carregado');
+  } catch (e) {
+    // Mantém o card de base (PISA) e mostra o aviso no lugar dos esqueletos.
+    falhaMedium(lista);
+    lista.setAttribute('data-estado', 'erro');
+  } finally {
+    window.clearTimeout(timer);
+  }
+}
+
+function iniciarMedium() {
+  const feed = document.querySelector('[data-embed="medium"]');
+  if (!feed || !window.fetch) return;
+  quandoPerto(feed, () => carregarMedium(feed));
+}
+
+/* ---------- Início ---------- */
+
+function iniciar() {
+  iniciarMenu();
+  iniciarMenuAtivo();
+  iniciarAnimacaoTrajetoria();
+  iniciarInstagram();
+  iniciarSoundCloud();
+  iniciarMedium();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', iniciar);
+} else {
+  iniciar();
+}
