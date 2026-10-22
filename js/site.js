@@ -17,9 +17,14 @@ const LIFESTYLE = {
     legenda: false,
   },
   soundcloud: {
-    perfil: '', // PENDENTE: URL do perfil ou playlist do SoundCloud
-    cor: '6D28D9',
-    alturaPx: 450,
+    // Faixa escolhida: Chisari - El Baile.
+    perfil: 'https://soundcloud.com/chisari/chisari-el-baile',
+    // Player exatamente como gerado pelo botão "Incorporar" do SoundCloud.
+    // Vazio = o site monta o player pelo oEmbed a partir de "perfil".
+    playerSrc: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1479613348&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
+    titulo: 'Player do SoundCloud: Chisari - El Baile',
+    cor: '6D28D9', // usada só quando o player é montado pelo oEmbed
+    alturaPx: 300,
   },
   medium: {
     usuario: 'eduaraujosa',
@@ -359,9 +364,11 @@ function iniciarSoundCloud() {
   const moldura = document.querySelector('[data-embed="soundcloud"]');
   if (!moldura) return;
 
-  // Perfil pendente: mantém o estado "Em breve" do HTML e não chama a API.
+  // Sem URL válida: mantém o conteúdo do HTML e não chama a API.
   const perfil = (cfg.perfil || '').trim();
   if (!/^https:\/\/(www\.|m\.)?soundcloud\.com\/[^\s]+$/.test(perfil) || /soundcloud\.com\/discover/.test(perfil)) return;
+  const playerSrc = (cfg.playerSrc || '').trim();
+  const srcFixo = playerSrc.indexOf('https://w.soundcloud.com/player/') === 0 ? playerSrc : '';
 
   document.querySelectorAll('[data-sc-link]').forEach((a) => {
     a.setAttribute('href', perfil);
@@ -373,12 +380,12 @@ function iniciarSoundCloud() {
   const carregar = async () => {
     limparMoldura(moldura);
     mostrarCarregando(moldura, 'Carregando o player do SoundCloud');
-    const src = await obterSrcSoundCloud({ ...cfg, perfil });
+    const src = srcFixo || await obterSrcSoundCloud({ ...cfg, perfil });
     carregarIframe(moldura, {
       src,
-      titulo: 'Player do SoundCloud com faixas de Eduardo Araújo',
+      titulo: cfg.titulo || 'Player do SoundCloud',
       rotuloCarregando: 'Carregando o player do SoundCloud',
-      atributos: { width: '100%', height: String(cfg.alturaPx), frameborder: '0', scrolling: 'no', allow: 'encrypted-media' },
+      atributos: { width: '100%', height: String(cfg.alturaPx), frameborder: 'no', scrolling: 'no', allow: 'autoplay; encrypted-media' },
       origemMensagem: 'https://w.soundcloud.com',
       // O widget envia { method: "ready" } quando o player está pronto.
       mensagemDeSucesso: (d) => d.method === 'ready',
