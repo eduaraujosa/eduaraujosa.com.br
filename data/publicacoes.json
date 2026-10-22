@@ -4,7 +4,10 @@
     "descricao": "Investiga as estratégias autorregulatórias de professores ao elaborar aulas de Ciências com storytelling.",
     "tipo": "Dissertação",
     "ano": "2026",
-    "detalhes": ["Mestrado em Educação em Ciências e Matemática", "PPGECM/UFPE"],
+    "detalhes": [
+      "Mestrado em Educação em Ciências e Matemática",
+      "PPGECM/UFPE"
+    ],
     "url": "",
     "semLink": "Acesso em breve no repositório Attena/UFPE",
     "pendente": "TODO: URL do repositório Attena/UFPE"
@@ -14,7 +17,11 @@
     "descricao": "Discute como a avaliação no ensino superior se relaciona com a realidade emocional dos estudantes.",
     "tipo": "Artigo",
     "ano": "2026",
-    "detalhes": ["Cadernos Cajuína, v. 11, n. 1, e1855", "ISSN 2448-0916", "Com Álvaro Lima de Almeida Nunes"],
+    "detalhes": [
+      "Cadernos Cajuína, v. 11, n. 1, e1855",
+      "ISSN 2448-0916",
+      "Coautoria: Álvaro Lima de Almeida Nunes"
+    ],
     "url": "https://doi.org/10.52641/cadcajv11i1.1855"
   },
   {
@@ -22,7 +29,12 @@
     "descricao": "Discute a autonomia docente quando professores planejam aulas de Ciências com apoio de IA generativa.",
     "tipo": "Capítulo de livro",
     "ano": "2026",
-    "detalhes": ["Ensinar, Aprender e Transformar: Percursos da Educação", "Aurum Editora", "p. 1718–1732", "ISBN 9786562230253"],
+    "detalhes": [
+      "Ensinar, Aprender e Transformar: Percursos da Educação",
+      "Aurum Editora",
+      "p. 1718–1732",
+      "ISBN 9786562230253"
+    ],
     "url": "https://doi.org/10.63330/aurumpub.067-112"
   },
   {
@@ -30,7 +42,12 @@
     "descricao": "Reflete sobre o uso de IA para analisar a sala de aula, em diálogo com a dialogicidade e a autorregulação.",
     "tipo": "Capítulo de livro",
     "ano": "2026",
-    "detalhes": ["Além dos limites: educação e pesquisas contemporâneas, v. 10", "Arco Editores", "p. 124–140", "ISBN 9786554177986"],
+    "detalhes": [
+      "Além dos limites: educação e pesquisas contemporâneas, v. 10",
+      "org. Ivanio Folmer",
+      "Arco Editores",
+      "ISBN 9786554177986"
+    ],
     "url": "https://doi.org/10.48209/978-65-5417-798-5"
   },
   {
@@ -38,7 +55,11 @@
     "descricao": "Aproxima o pensamento de Paulo Freire dos desafios pedagógicos trazidos pela inteligência artificial.",
     "tipo": "Trabalho em evento",
     "ano": "2026",
-    "detalhes": ["IV Pré-Colóquio Internacional Paulo Freire, Recife", "Zenodo"],
+    "detalhes": [
+      "Anais do IV Pré-Colóquio Internacional Paulo Freire, v. 4",
+      "Recife",
+      "Zenodo"
+    ],
     "url": "https://doi.org/10.5281/zenodo.23501496"
   },
   {
@@ -46,7 +67,12 @@
     "descricao": "Reúne pesquisas brasileiras que tratam o storytelling como abordagem pedagógica no ensino de Ciências.",
     "tipo": "Trabalho em evento",
     "ano": "2025",
-    "detalhes": ["Anais do III Congresso Brasileiro de Pesquisa e Inovação em Educação", "Com Glauco Vinicius Pires Pereira Cartaxo e Vitória Vieira da Silva"],
+    "detalhes": [
+      "Anais do III Congresso Brasileiro de Pesquisa e Inovação em Educação",
+      "Revista Multidisciplinar de Educação e Meio Ambiente",
+      "ISSN 2675-813X",
+      "Coautoria: Glauco Vinícius Pires Pereira Cartaxo e Vitória Vieira da Silva"
+    ],
     "url": "https://doi.org/10.51189/iii-cinped/55168"
   }
 ]
