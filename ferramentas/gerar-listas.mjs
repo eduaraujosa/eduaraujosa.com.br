@@ -23,7 +23,7 @@ const esc = (s) =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
-const NOVA_ABA = '<span class="sr">(abre em nova aba)</span>';
+const NOVA_ABA = '<span class="sr"> (abre em nova aba)</span>';
 const SETA = '<svg class="ico ico-seta" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-seta"/></svg>';
 
 function capitulo(c, i, total) {
@@ -50,20 +50,20 @@ function capitulo(c, i, total) {
 
 function publicacao(p, i) {
   const id = `pub-${i + 1}`;
+  // Espaço inseparável em "ISBN 978…", "p. 124", "v. 10" etc., para não quebrar a linha no meio.
+  const info = [p.tipo, p.ano, ...(p.detalhes || [])].map(esc).join(' · ')
+    .replace(/\b(ISBN|ISSN|p\.|v\.|n\.) /g, '$1&nbsp;');
   const pendente = p.pendente ? `\n            <!-- ${esc(p.pendente).replace(/^TODO/, '// TODO')} -->` : '';
+  const acesso = p.url
+    ? `<p class="pub__acesso">Acesso: <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.url)}${NOVA_ABA}</a></p>`
+    : `<p class="pub__acesso pub__acesso--pendente">${esc(p.semLink || 'Acesso em breve')}</p>`;
   return `
         <li>
           <article class="pub dobra dobra--34" aria-labelledby="${id}">
-            <div class="pub__id">
-              <p class="pub__tipo">${esc(p.tipo)} · ${esc(p.ano)}</p>
-              <p class="pub__veiculo">${esc(p.veiculo)}</p>
-            </div>
-            <div class="pub__conteudo">
-              <h3 class="pub__titulo" id="${id}">${esc(p.titulo)}</h3>
-              <p class="pub__subtitulo">${esc(p.subtitulo)}</p>
-              <p class="pub__descricao">${esc(p.descricao)}</p>${pendente}
-              <a class="link-seta" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.rotuloLink)} ${NOVA_ABA}${SETA}</a>
-            </div>
+            <h3 class="pub__titulo" id="${id}">${esc(p.titulo)}</h3>
+            <p class="pub__descricao">${esc(p.descricao)}</p>
+            <p class="pub__info">${info}</p>${pendente}
+            ${acesso}
           </article>
         </li>`;
 }
