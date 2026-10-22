@@ -30,6 +30,8 @@ Página única em HTML, CSS e JavaScript puros, sem framework e sem etapa de bui
 
 **Resultado no Google.** O título vem de `<title>`, o texto de `<meta name="description">` e o nome do site do JSON-LD `WebSite` (`eduaraujosa.com.br`). O Google pode encurtar ou reescrever esses textos e leva alguns dias para atualizar depois da publicação.
 
+**Cache de CSS e JS.** O servidor guarda `estilo.css` e `site.js` por 7 dias no navegador. A cada alteração nesses arquivos, aumente o `?v=` nos links do `index.html` (ex.: `?v=3.1` → `?v=3.2`) para os visitantes receberem a versão nova.
+
 ## Versões
 
 - v3 (out/2026): redesign a partir do Figma, com Trajetória em linha do tempo, Publicações em lista e seção Lifestyle (SoundCloud, Medium e Instagram).
