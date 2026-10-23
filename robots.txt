@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /v3-previa/
+
+Sitemap: https://eduaraujosa.com.br/sitemap.xml
