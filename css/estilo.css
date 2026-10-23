@@ -1044,25 +1044,14 @@ section[id], main [id] { scroll-margin-top: calc(var(--altura-cabecalho) + 16px)
 .post__link::before { content: ""; position: absolute; inset: -11px -8px; }
 .post__link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-.post--falha {
-  grid-column: span 2;
-  align-self: stretch;
-  justify-content: center;
-  align-items: center;
-  min-height: 190px;
-  padding: 32px;
-  border-radius: 10px;
-  background: var(--lavanda-50);
-  text-align: center;
-}
-
 @media (max-width: 1023px) {
   .janela--instagram .janela__corpo { flex-direction: column; align-items: stretch; gap: 32px; }
   .janela--instagram .moldura--instagram { align-self: center; }
-  /* Medium no tablet: 2 colunas; o 3º card ocupa a largura toda. */
-  .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .posts > .post:nth-child(3):last-child { grid-column: 1 / -1; }
-  .post--falha { grid-column: 1 / -1; }
+  /* Textos no tablet: mantém 3 colunas (a grade sempre fecha em múltiplos de 3). */
+  .posts { gap: 20px; }
+  .post__mini { height: 150px; }
+  .post__mini--iniciais { font-size: 30px; }
+  .post__titulo { font-size: 17px; }
 }
 
 @media (max-width: 767px) {
@@ -1072,7 +1061,9 @@ section[id], main [id] { scroll-margin-top: calc(var(--altura-cabecalho) + 16px)
   .janela__pergunta { font-size: 21px; }
   .janela--instagram .janela__pergunta { font-size: 26px; }
   .posts { grid-template-columns: minmax(0, 1fr); }
-  .posts > .post:nth-child(3):last-child { grid-column: auto; }
+  .post__mini { height: 190px; }
+  .post__mini--iniciais { font-size: 40px; }
+  .post__titulo { font-size: 19px; }
   .moldura--instagram { width: 100%; max-width: 320px; }
 }
 

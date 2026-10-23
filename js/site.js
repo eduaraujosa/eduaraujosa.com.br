@@ -29,7 +29,9 @@ const LIFESTYLE = {
   medium: {
     usuario: 'eduaraujosa',
     perfil: 'https://eduaraujosa.medium.com/',
-    quantidade: 3,
+    // Máximo de textos do Medium. Somados aos artigos fixos do LinkedIn,
+    // o total é ajustado para fechar linhas completas de 3 cards.
+    quantidade: 4,
     // Caminho relativo à página: funciona na raiz e na pasta de prévia.
     endpoint: 'api/medium.php',
   },
@@ -476,18 +478,17 @@ function cardPost(item) {
   return li;
 }
 
-function falhaMedium(lista) {
-  lista.querySelectorAll('.post--esqueleto').forEach((n) => n.remove());
-  const li = criar('li', 'post post--falha');
-  li.appendChild(criar('p', 'estado__texto', 'Não foi possível carregar os textos agora.'));
-  const a = linkExterno('estado__link', LIFESTYLE.medium.perfil, 'Ler no Medium');
-  a.appendChild(icone('i-abre', 16, 'ico ico-abre'));
-  li.appendChild(a);
-  lista.appendChild(li);
+// Quantos textos do Medium mostrar para que, somados aos cards fixos
+// (LinkedIn), a grade feche em linhas completas de 3. Mínimo de 1.
+function quantosMedium(disponiveis, fixos) {
+  let n = Math.min(disponiveis, LIFESTYLE.medium.quantidade);
+  while (n > 1 && (n + fixos) % 3 !== 0) n -= 1;
+  return n;
 }
 
 async function carregarMedium(feed) {
   const lista = feed.querySelector('.posts');
+  const fixos = lista.querySelectorAll('.post--fixo');
   const controle = new AbortController();
   const timer = window.setTimeout(() => controle.abort(), TEMPO_LIMITE_MS);
   try {
@@ -498,20 +499,21 @@ async function carregarMedium(feed) {
     });
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     const dados = await resp.json();
-    const itens = (Array.isArray(dados.items) ? dados.items : [])
+    const validos = (Array.isArray(dados.items) ? dados.items : [])
       .map((i) => ({ ...i, link: urlSegura(i && i.link, HOSTS_LINK_MEDIUM) }))
-      .filter((i) => i.link && typeof i.titulo === 'string' && i.titulo.trim())
-      .slice(0, LIFESTYLE.medium.quantidade);
+      .filter((i) => i.link && typeof i.titulo === 'string' && i.titulo.trim());
+    const itens = validos.slice(0, quantosMedium(validos.length, fixos.length));
 
     if (!itens.length) throw new Error(dados.erro || 'feed vazio');
 
+    // Troca só os cards do Medium; os do LinkedIn ficam depois deles.
     const frag = document.createDocumentFragment();
     itens.forEach((i) => frag.appendChild(cardPost(i)));
+    fixos.forEach((n) => frag.appendChild(n));
     lista.replaceChildren(frag);
     lista.setAttribute('data-estado', 'carregado');
   } catch (e) {
-    // Mantém o card de base (PISA) e mostra o aviso no lugar dos esqueletos.
-    falhaMedium(lista);
+    // Mantém o card de base (PISA) e os do LinkedIn: a janela continua completa.
     lista.setAttribute('data-estado', 'erro');
   } finally {
     window.clearTimeout(timer);

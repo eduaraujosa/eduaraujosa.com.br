@@ -34,5 +34,5 @@ Página única em HTML, CSS e JavaScript puros, sem framework e sem etapa de bui
 
 ## Versões
 
-- v3 (out/2026): redesign a partir do Figma, com Trajetória em linha do tempo, Publicações em lista e seção Lifestyle (SoundCloud, Medium e Instagram).
+- v3 (out/2026): redesign a partir do Figma, com Trajetória em linha do tempo, Publicações em lista e seção Lifestyle (SoundCloud, Medium e Instagram). Os artigos do LinkedIn ficam fixos no HTML, na janela do Medium (`.post--fixo`); o JS só troca os textos do Medium e ajusta a quantidade para fechar linhas de 3 cards.
 - v2 (out/2026): redesign em coluna única, com narrativa sequencial.
