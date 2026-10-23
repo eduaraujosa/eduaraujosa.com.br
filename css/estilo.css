@@ -997,6 +997,7 @@ section[id], main [id] { scroll-margin-top: calc(var(--altura-cabecalho) + 16px)
   object-fit: cover;
   background: var(--lavanda-100);
 }
+.post > picture { display: block; width: 100%; }
 .post__mini--iniciais {
   display: flex;
   align-items: center;
