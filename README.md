@@ -18,7 +18,7 @@ Página única em HTML, CSS e JavaScript puros, sem framework e sem etapa de bui
 
 **Nova publicação ou foto na Trajetória.** Edite o JSON em `data/` e rode `node ferramentas/gerar-listas.mjs`. O script só troca o trecho entre os comentários `<!-- publicacoes:inicio -->`/`<!-- publicacoes:fim -->` (e os equivalentes da trajetória). Também dá para editar esse trecho à mão. Na Trajetória, o campo `foto` vazio deixa a zona de foto vazia; com um caminho (ex.: `img/trajetoria-2018.webp`) e `fotoAlt`, a foto aparece girada ao lado do capítulo.
 
-**SoundCloud.** Em `js/site.js`, `LIFESTYLE.soundcloud.perfil` é a página da faixa (links "abrir" e "Ouvir no SoundCloud") e `playerSrc` é o `src` do iframe copiado do botão "Incorporar" do SoundCloud. Para trocar a faixa, troque os dois, os links da janela e a linha de créditos no `index.html`. Com `playerSrc` vazio, o player é montado pelo oEmbed a partir de `perfil`. Se um dia for o seu próprio perfil, inclua-o também no `sameAs` do JSON-LD.
+**SoundCloud.** Em `js/site.js`, `LIFESTYLE.soundcloud.perfil` é a página da faixa (links "abrir" e "Ouvir no SoundCloud") e `playerSrc` é o `src` do iframe copiado do botão "Incorporar" do SoundCloud. Para trocar a faixa, troque os dois, os links da janela e a linha de créditos no `index.html`. Com `playerSrc` vazio, o player é montado pelo oEmbed a partir de `perfil`. A faixa incorporada é de outro artista (gosto musical); o perfil próprio, `soundcloud.com/eduaraujosa`, fica na lista de perfis oficiais e no `sameAs`.
 
 **Post do Instagram.** Troque `LIFESTYLE.instagram.postShortcode` (o trecho depois de `instagram.com/p/`) e o link do estado sem JavaScript no `index.html`. O embed usa `/embed/` (cabe em 320×568); `legenda: true` usa `/embed/captioned/`, que é mais alto e fica recortado.
 
@@ -29,6 +29,8 @@ Página única em HTML, CSS e JavaScript puros, sem framework e sem etapa de bui
 **Logo.** Para trocar, gere novamente `img/logo-eduaraujosa-106.*` e `-159.*` (53 px de altura em telas 2x e 3x) e os favicons. O logo aparece no cabeçalho e no rodapé do `index.html`.
 
 **Google Search Console.** A propriedade `https://eduaraujosa.com.br/` está validada pelo arquivo `google4e06b6eb990039be.html` (não apague). `robots.txt` aponta para `sitemap.xml`; ao fazer uma mudança grande, atualize o `<lastmod>` do sitemap.
+
+**Identidade no Google.** O JSON-LD usa um único bloco `@graph` com `WebSite` (#website), `ProfilePage` (#profilepage) e `Person` (#person). A pessoa tem o nome completo em `name`, as formas reais do nome e o usuário em `alternateName`, e os perfis oficiais em `sameAs`. Ao incluir ou trocar um perfil, altere ao mesmo tempo a lista "Perfis oficiais" do contato e o `sameAs`, sem duplicar endereços que só mudam no idioma (ex.: `hl=` do Google Acadêmico).
 
 **Resultado no Google.** O título vem de `<title>`, o texto de `<meta name="description">` e o nome do site do JSON-LD `WebSite` (`eduaraujosa.com.br`). O Google pode encurtar ou reescrever esses textos e leva alguns dias para atualizar depois da publicação.
 

@@ -1147,9 +1147,13 @@ section[id], main [id] { scroll-margin-top: calc(var(--altura-cabecalho) + 16px)
   gap: 20px;
   margin-top: 56px;
 }
+.perfis__titulo { margin: 0; }
 .perfis__lista {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 1023px) {
+  .perfis__lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .perfil {
   display: flex;
