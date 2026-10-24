@@ -2,6 +2,15 @@
 # Compressão e cache de arquivos estáticos. Tudo dentro de <IfModule>:
 # se o módulo não existir no servidor, a regra é simplesmente ignorada.
 
+# Versão com www → endereço canônico (sem www), preservando o caminho.
+# A pasta .well-known fica de fora para não atrapalhar o certificado (AutoSSL).
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.eduaraujosa\.com\.br$ [NC]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule ^ https://eduaraujosa.com.br%{REQUEST_URI} [R=301,L]
+</IfModule>
+
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml text/plain
 </IfModule>
