@@ -409,6 +409,15 @@ section[id], main [id] { scroll-margin-top: calc(var(--altura-cabecalho) + 16px)
   color: var(--tinta);
 }
 
+.abertura__nome-completo {
+  margin-top: -12px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: .04em;
+  color: var(--violeta);
+}
+
 .abertura__paragrafo { color: var(--texto-suave); }
 
 .abertura__acoes {
