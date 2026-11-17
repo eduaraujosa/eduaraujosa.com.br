@@ -38,8 +38,9 @@ const LIFESTYLE = {
 };
 
 // LGPD: com false, Instagram e SoundCloud só carregam depois de um clique
-// na "fachada". O feed do Medium vem do próprio domínio e não depende disso.
-const CONSENTIMENTO_EMBEDS = false;
+// na "fachada". Com true (escolha do Eduardo em 17/11/2026), carregam sozinhos
+// quando a janela chega perto da tela. O feed do Medium não depende disso.
+const CONSENTIMENTO_EMBEDS = true;
 
 const TEMPO_LIMITE_MS = 8000;
 
